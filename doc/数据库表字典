@@ -1,0 +1,231 @@
+1.表名 tb__my_album - 个人空间中的我的相册表
+    字段：`id` -  主键ID
+    数据类型：int
+    字段：`album_name` -  相册表名称，默认相册为ID1
+    数据类型：varchar
+2.表名 tb_admin - 管理员表
+    字段：`id` -  主键ID
+    数据类型：int
+    字段：`admin_name` -  管理员名称
+    数据类型：varchar
+    字段：`admin_password` -  管理员密码
+    数据类型：varchar
+    字段：`admin_img` -  管理员头像
+    数据类型：varchar
+3.表名 tb_banner - banner表
+    字段:`id` -  主键ID
+    数据类型：int
+    字段:`photos_address` - 轮播地址
+    数据类型：varchar
+    字段:`photos_upload_time` - 轮播图上传时间
+    数据类型：varchar
+    字段:`photos_jumps` - 轮播跳转链接
+    数据类型：varchar
+    字段:`photos_name` - 轮播图名称
+    数据类型：varchar
+4.表名 tb_browse_record - 我的记录
+    字段:`id` -  主键ID
+    数据类型：int
+    字段:`user_id` - 用户id
+    数据类型：int
+    字段:`browse_record_id` - 浏览视频id
+    数据类型：int
+    字段：`browse_time` - 浏览时间
+    数据类型：varchar
+5.表名 tb_comment - 评论表
+    字段:`id` -  主键ID
+    数据类型：int
+    字段：`video_id` - 视频ID（1对多）
+    数据类型：int
+    字段:`user_id` - 用户id
+    数据类型：int
+    字段：`user_comment` - 用户评论
+    数据类型：varchar
+    字段：`comment_time` - 评论时间
+    数据类型：varchar
+    字段：`point_num` - 点赞数量
+    数据类型：int
+    字段：`comment_picture` - 评论图片
+    数据类型：varchar
+6.表名 tb_consumption_record - 消费记录表
+    字段:`id` -  主键ID
+    数据类型：int
+    字段：`user_id` - 消费用户ID
+    数据类型：int
+    字段：`consumption_amount` - 消费金额
+    数据类型：double
+    字段：`consumption_items` - 消费项目1是修改昵称 2是打赏
+    数据类型：int
+    字段：`consumption_time` - 消费时间
+    数据类型：varchar
+7.表名 tb_first_menu - 一级菜单
+    字段:`id` -  主键ID
+    数据类型：int
+    字段：`menu_name` - 菜单名称
+    数据类型：varchar
+8.表名 tb_integral - 积分表
+    字段:`id` -  主键ID
+    数据类型：int
+    字段：`user_id` - 用户id
+    数据类型：int
+    字段：`integral_num` - 积分值：充值送积分，开通会员送积分
+    数据类型：int
+9.表名 tb_integral_record - 积分记录表
+    字段:`id` -  主键ID
+    数据类型：int
+    字段：`user_id` - 用户id
+    数据类型：int
+    字段：`operation_project` - 两个项目，充值送积分，开会员送积分，这是增加操作\r\n积分可以购买会员，这是扣除操作
+    数据类型：varchar
+    字段：`operation_time` - 什么时间对积分的变动
+    字段类型：varchar
+10.表名 tb_jc_record - 我的记录：节操记录表
+    字段:`id` -  主键ID
+    数据类型：int
+    字段：`user_id` - 用户id
+    数据类型：int
+    字段：`subtract_project` - 扣分项目
+    数据类型：varchar
+    字段：`subtract_time` - 扣分时间
+    数据类型：varchar
+11.表名 tb_label - 标签表：\r\n         标签写定义几个名称，例如：“暴力”，“血腥”，“色情”  等\r\n\r\n  对应的标签在代码中定义各个标签扣除的分数'
+    字段:`id` -  主键ID
+    数据类型：int
+    字段：`label_name` - 标签名称
+    数据类型：varchar
+12.表名 tb_login_record - 我的记录：登录记录表
+    字段:`id` -  主键ID
+    数据类型：int
+    字段：`user_id` - 用户id
+    数据类型：int
+    字段：`user_ip` - 用户的IP地址
+    数据类型：varchar
+    字段：`login_time` - 我的登录时间
+    数据类型：varchar
+13.表名 tb_membership_level - 会员等级表
+    字段:`id` -  主键ID
+    数据类型：int
+    字段：`membership_level` - 会员等级
+    数据类型：int
+    字段：`recharge_discount` - 充值折扣
+    数据类型：double
+    字段：`consumption_discount` - 消费折扣
+    数据类型：double
+14.表名 tb_my_collection - 个人空间：主页：我的收藏
+    字段:`id` -  主键ID
+    数据类型：int
+    字段：`user_id` - 用户id
+    数据类型：int
+    字段：`collection_video_id` - 收藏视频id
+    数据类型：int
+15.表名 tb_my_dynamics - 个人空间：主页：我的动态：动态列表
+    字段:`id` -  主键ID
+    数据类型：int
+    字段：`user_id` - 用户id
+    数据类型：int
+    字段：`dynamic_content` - 动态内容（汉字）
+    数据类型：varchar
+    字段：`dynamic_photos_address` - 动态图片地址
+    数据类型：varchar
+    字段：`dynamic_date` - 发布动态时间
+    数据类型：varchar
+16.表名 tb_my_photos - 个人空间：主页：我的相册
+    字段:`id` -  主键ID
+    数据类型：int
+    字段：`user_id` - 用户id
+    数据类型：int
+    字段：`photo_address` - 照片地址
+    数据类型：varchar
+    字段：`upload_time`  - 上传时间
+    数据类型：varchar
+    字段：`file_name` - 文件名称
+    数据类型：varchar
+    字段：`album_id`  - 关联相册表的id  1为默认相册
+    数据类型：int
+17.表名 tb_recharge_record - 充值记录
+    字段:`id` -  主键ID
+    数据类型：int
+    字段：`user_id` - 用户id
+    数据类型：int
+    字段：`recharge_amount` - 充值金额
+    数据类型：double
+    字段：`recharge_time` - 充值时间
+    数据类型：varchar
+18.表名 tb_reply - 回复表
+    字段:`id` -  主键ID
+    数据类型：int
+    字段：`comment_id` - 评论ID
+    数据类型：int
+    字段：`user_id` - 用户id
+    数据类型：int
+    字段：`reply_content` - 回复内容
+    数据类型：varchar
+    字段：`reply_picture` - 回复图片
+    数据类型：varchar
+    字段：`reply_time` - 回复时间
+    数据类型：varchar
+    字段：`video_id`
+    数据类型：int
+19.表名 tb_two_menu - 二级菜单
+    字段:`id` -  主键ID
+    数据类型：int
+    字段：`menu2_name` - 二级菜单名称
+    数据类型：varchar
+    字段：`first_menu_id` - 一级菜单id
+    数据类型：int
+20.表名 tb_user - 用户表
+    字段:`id` -  主键ID
+    数据类型：int
+    字段：`user_num` - 用户账号
+    数据类型：varchar
+    字段：`user_password` - 用户密码
+    数据类型：varchar
+    字段：`user_name` - 用户昵称
+    数据类型：varchar
+    字段：`user_context` - 用户签名
+    数据类型：varchar
+    字段：`user_birthday` - 用户出生年月
+    数据类型：varchar
+    字段：`user_sex` - 用户性别1为男性，0为女性，2为保密
+    数据类型：char
+    字段：`user_img` - 用户头像
+    数据类型：varchar
+    字段：`recovery_flag` - 回收状态0为未回收，1为回收
+    数据类型：char
+    字段：`ice_flag` - 冻结状态0为未冻结，1
+    数据类型：char
+    字段：`del_flag` - 封号状态0为未封号，1为封号
+    数据类型：char
+    字段：`c_money` - 金额C币
+    数据类型：double
+    字段：`user_telephone_num` - 电话号码
+    数据类型：varchar
+    字段：`user_email`  - 邮箱
+    数据类型：varchar
+    字段：`jc_num` - 节操值默认添加80
+    数据类型：int
+    字段：`membership_level_id` - 会员等级ID 默认为绑定下表ID1   为0级
+    数据类型：int
+21.表名 tb_video_upload - 个人空间主页视频上传列表
+    字段:`id` -  主键ID
+    数据类型：int
+    字段：`user_id` - 用户id
+    数据类型：int
+    字段：`video_name` - 视频名称
+    数据类型：varchar
+    字段：`video_cover` - 视频封面图片
+    数据类型：varchar
+    字段：`video_address` - 视频地址
+    数据类型：varchar
+    字段：`upload_time` - 上传时间
+    数据类型：varchar
+    字段：`top_flag` - 1是，0否       是否置顶
+    数据类型：char
+    字段：`points_num` - 点赞数量
+    数据类型：int
+    字段：`examine_flag` - 审核状态0未审核，1已审核
+    数据类型：char
+    字段：`audit_pass` - 默认为0，视频通过为1，驳回为2
+    数据类型：char
+    字段：`viewing_flag` - 0为非会员可观看，1为会员观看（判断是否大于0）
+    数据类型：char

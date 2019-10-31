@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- mapper 中的 namespace 配置 带有@Mapper 注解的接口 -->
+<mapper namespace="com.ssm.xingxingsystem.dao.PhotoDao">
+    <!--配置实体类与数据库表的映射-->
+    <resultMap id="photo" type="com.ssm.xingxingsystem.bean.Photo">
+    <id column="id" property="id" jdbcType="INTEGER"/>
+        <result column="user_id" property="userId" jdbcType="INTEGER"/>
+        <result column="photo_address" property="photoAddress" jdbcType="VARCHAR"/>
+        <result column="upload_time" property="uploadTime" jdbcType="VARCHAR"/>
+        <result column="file_name" property="fileName" jdbcType="VARCHAR"/>
+        <result column="album_id" property="albumId" jdbcType="INTEGER"/>
+    </resultMap>
+</mapper>

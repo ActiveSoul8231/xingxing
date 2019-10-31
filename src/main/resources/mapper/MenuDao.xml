@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--mapper 中的nameSpace 配置 带有@Mapper 注解的接口-->
+<mapper namespace="com.ssm.xingxingsystem.dao.MenuDao">
+<!--    resultMap 用于配置实体类和数据库表的映射
+        id 为唯一标识，不能重复
+        type 配置实体类的全路径名
+-->
+    <resultMap id="firstMenuMap" type="com.ssm.xingxingsystem.bean.menu.FirstMenu">
+        <id column="id" property="id" jdbcType="INTEGER"></id>
+        <result column="menu_name" property="menuName" jdbcType="VARCHAR"></result>
+    </resultMap>
+    <resultMap id="twoMenuMap" type="com.ssm.xingxingsystem.bean.menu.TwoMenu">
+        <id column="id" property="id" jdbcType="INTEGER"></id>
+        <result column="menu2_name" property="menu2Name" jdbcType="VARCHAR"></result>
+        <result column="first_menu_id" property="firstMenuId" jdbcType="VARCHAR"></result>
+    </resultMap>
+
+    <resultMap id="firstMenuVoMap" type="com.ssm.xingxingsystem.vo.FirstMenuVo">
+        <id column="id" property="id" jdbcType="INTEGER"></id>
+        <result column="menu_name" property="menuName" jdbcType="VARCHAR"></result>
+        <collection property="twoMenuList" ofType="com.ssm.xingxingsystem.bean.menu.TwoMenu">
+            <id column="tid" property="id" jdbcType="INTEGER"></id>
+            <result column="menu2_name" property="menu2Name" jdbcType="VARCHAR"></result>
+        </collection>
+    </resultMap>
+</mapper>

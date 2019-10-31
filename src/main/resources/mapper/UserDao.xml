@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- mapper 中的 namespace 配置 带有@Mapper 注解的接口 -->
+<mapper namespace="com.ssm.xingxingsystem.dao.UserDao">
+    <!--  resultMap 用于配置 实体类与数据库表的映射
+          id为唯一标识 随意起名 不能重复
+          type 配置实体类的全路径名
+    -->
+    <resultMap id="userMap" type="com.ssm.xingxingsystem.bean.User">
+        <!--
+            id 标签 配置 id 和 result 一样
+            column 数据库字段名
+            property 实体类属性名 小驼峰命名规则
+            jdbcType 数据库字段的数据类型 （要求  必须全大写）
+            javaType 可以忽略
+        -->
+        <id column="id" property="id" jdbcType="INTEGER"/>
+        <result column="user_name" property="userName" jdbcType="VARCHAR"/>
+        <result column="user_password" property="password" jdbcType="VARCHAR"/>
+        <result column="user_num" property="userNum" jdbcType="VARCHAR"/>
+        <result column="user_context" property="userContext" jdbcType="VARCHAR"/>
+        <result column="user_birthday" property="userBirthday" jdbcType="VARCHAR"/>
+        <result column="user_img" property="userImg" jdbcType="VARCHAR"/>
+        <result column="user_sex" property="userSex" jdbcType="CHAR"/>
+        <result column="recovery_flag" property="recoveryFlag" jdbcType="CHAR"/>
+        <result column="ice_flag" property="iceFlag" jdbcType="CHAR"/>
+        <result column="del_flag" property="delFlag" jdbcType="CHAR"/>
+        <result column="user_telephone_num" property="userTelephoneNum" jdbcType="VARCHAR"/>
+        <result column="c_money" property="cMoney" jdbcType="VARCHAR"/>
+        <result column="user_email" property="userEmail" jdbcType="VARCHAR"/>
+        <result column="jc_num" property="userJc" jdbcType="INTEGER"/>
+        <result column="membership_level_id" property="membershipLevelId" jdbcType="INTEGER"/>
+    </resultMap>
+
+</mapper>

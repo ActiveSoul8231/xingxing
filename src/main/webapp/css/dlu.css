@@ -1,0 +1,83 @@
+*{margin:0px; padding:0px; margin:0 auto; list-style:none; text-decoration:none; font-size:12px; font-family:Arial;}
+img{ border:none;}
+
+/*  顶部  */
+.width_Top{ width:100%; height:100px;}
+.Top{ width:1190px; height:100px;}
+.Top_left{ width:189px; height:59px; float:left; margin-top:20px; margin-left:100px;}
+.Top_right{ width:200px; height:18px; float:right; margin-top:60px; margin-right:64px;}
+.Tr_img{ width:18px; height:18px; float:left; background-image:url(../image/dlu/spritesheet.png); background-repeat:no-repeat; background-position:-144px -1px;}
+.Tr_img img{ width:100%; height:100%;}
+.Top_right a{ display:block; text-indent:5px; font-size:14px; line-height:18px; color:#333333;}
+.Top_right a:hover{ text-decoration:underline;}
+
+
+/*  中间  */
+.width_Cen{ width:100%; height:600px; background-image:url(../image/dlu/backGroundIndex.jpg); background-position:center; background-repeat:no-repeat; background-color:#ffd237;background-size: cover;}
+.Cen{ width:1190px; height:800px; position: relative;}
+
+.Cen_one{ width:386px; height:450px; display: block; position: absolute; top:71px; right:100px; background-color:#FFFFFF; border-radius:5px; filter:alpha(opacity=90); opacity:0.9; }
+.Cen_one_top{ width:362px; height:90px; float:left; margin-left:24px;}
+.CoT_l{ height:29px; width:200px; float:left; margin-top:26px;}
+.CoT_l h3{ font-size:20px; line-height:29px; color:#333333;}
+.CoT_r{ width:53px; height:53px; float:right; display: block; background-image:url(../image/dlu/spritesheet.png); background-repeat:no-repeat; background-position:0px -24px;}
+.CoT_r_two{ width:53px; height:53px; float:right; display: none; background-image:url(../image/dlu/spritesheet.png); background-repeat:no-repeat; background-position:-55px -24px;}
+
+
+.Cen_one_form{ width:338px; height:220px; display: block; float:left; margin-left:24px;}
+.Cen_one_form_one{width:338px; height:42px; float:left; position:relative;}
+.Cen_one_form_one input{width:336px; height:40px;  border:1px solid #dedede; font-size:14px; text-indent:40px;}
+.Cen_one_form_one1{ width:19px; height:20px; float:left; top:11px; left:11px; position:absolute; background-image:url(../image/dlu/spritesheet.png); background-repeat:no-repeat; background-position:-111px -24px;}
+.Cen_one_form_one2{ width:19px; height:20px; float:left; top:11px; left:11px; position:absolute; background-image:url(../image/dlu/spritesheet.png); background-repeat:no-repeat; background-position:-111px -44px;}
+
+.Cen_two_form{ width:338px; height:220px; display: none; float:left; margin-left:24px;}
+.cen_two_form_img{ width: 200px; height: 200px; text-align: center; margin-top: 10px; background-color: #FF6600; background-image: url("../image/dlu/erweima.jpg")}
+
+/*  自动登陆  */
+.Cendj{ width:338px; height:44px; float:left;}
+.Cendj_left{height:44px; line-height:44px; float:left; position:relative;}
+.Cendj_left a{ margin-left:10px; color:#999999;}
+.Cendj_kuai{width:13px; height:13px; float:left; position:relative; top:15px; overflow:hidden; cursor:pointer;}
+.Cendj_kuai img{ position:absolute; left:-347px; top:-270px;}
+.Cendj_kuai_tishi{ text-indent:10px; display:inline-block; color:#ff0000; float:left; display:none;}
+.Cendj_right{ height:44px; line-height:44px; float:right;}
+.Cendj_right a{ display:block; margin-right:10px; color:#999999;}
+.Cen_dl{width:338px; height:40px; float:left;}
+.Cen_dl input{width:338px; height:40px; border:none; font-size:20px; text-align:center; background-color:/*#ff9c00*/#29a5f7; color:#FFF; border-radius:3px;}
+.Cen_one_bottom{ width:338px; height:32px; float:left;}
+.CenOb_l{ width:90px; height:32px; float:left;}
+.CenOb_l a{ color:#ff9c00; font-size:12px; line-height:32px;}
+.CenOb_r{ width:50px; height:32px; float:right;}
+.CenOb_r a{ color:#333333; font-size:12px; line-height:32px;}
+.Cen_one_bottom a:hover{ text-decoration:underline; color:#ff9c00;}
+
+.Cenhz{ width:338px; height:68px; float:left; margin-left:24px; margin-top:60px; position:relative;}
+.Cenhz_Top{ width:338px; height:4px; float:left; border-bottom:1px solid #dddddd;}
+.Cenhz_Top_z{ width:118px; height:12px; position:absolute; z-index:5; background-color:#FFFFFF; color:#999999; top:0; left:110px; text-align:center; line-height:12px; font-size:12px;}
+.Cenhz_b{ width:338px; height:50px; float:left; margin-top:7px;}
+.Cenhz_b ul li{ width:24px; height:24px; float:left; margin-top:13px; margin-left:5px; margin-right:30px; background-image:url(../image/dlu/spritesheet.png); background-repeat:no-repeat; filter:alpha(opacity=40); opacity:0.4;}
+.Cenhz_b ul li a{ display:block; width:24px; height:24px; float:left;}
+.Cenhz_b ul li:first-child{ background-position:0px 0px;}
+.Cenhz_b ul li:nth-child(2){ background-position:-24px 0px;}
+.Cenhz_b ul li:nth-child(3){ background-position:-48px 0px;}
+.Cenhz_b ul li:nth-child(4){ background-position:-72px 0px;}
+.Cenhz_b ul li:nth-child(5){ background-position:-96px 0px;}
+.Cenhz_b ul li:nth-child(6){ background-position:-120px 0px; margin-right:0px;}
+.Cenhz_b ul li:hover{filter:alpha(opacity=100); opacity:1;}
+
+.Cenhz_C{width:338px; height:50px; float:left; margin-top:7px;}
+.Cenhz_C ul li{ float: left; margin-top:13px; margin-left:20px;}
+
+.weibu{ width:1190px; height:148px;}
+.weibu p{ height:14px; width:1190px; float:left; text-align:center; line-height:14px;}
+.weibu p a{ color:#333333; font-size:12px; padding-right:5px;}
+.weibu p a:hover{ color:#F60; text-decoration:underline;}
+
+.weiba_n{ width:1190px; height:14px; float:left; text-align:center; color:#999999; font-size:12px;}
+.weiba_n a{ color:#999999; font-size:12px;}
+.weiba_n a:hover{ text-decoration:underline;}
+
+.weibu span{ display:block; width:76px; height:24px; float:left; margin-top:10px; margin-right:10px;}
+.weibu span img{ width:100%; height:100%;}
+
+

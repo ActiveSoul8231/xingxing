@@ -1,0 +1,50 @@
+*{margin:0px; padding:0px; margin:0 auto; list-style:none; text-decoration:none; font-size:12px;}
+img{ border:none;}
+input {outline: none;}
+textarea{ outline: none; resize: none}
+
+.Top{ width: 100%; height: 50px; border-bottom: 1px solid #f69; margin-bottom: 40px;}
+.Top_n{ width: 1200px; height: auto;}
+.Top_n_left_login{ float: left; width: 88px; height: 50px; float: left;}
+.Top_n_left_login img{ margin-top: 10px;}
+
+.Top_n_left{ float: left; width: 800px; height: 50px; margin-left: 20px;}
+.Top_n_one{ width: auto; height: 50px; float: left; position: relative;}
+.Top_n_one a{ display: block; padding-left: 10px; padding-right: 10px; line-height: 20px; font-size: 16px; color: #9d9d9d; text-align: center; height: 20px; margin-top: 15px; border-left: 2px solid #FFFFFF; border-right: 2px solid #FFFFFF;   margin-bottom: 15px;}
+.Top_n_one a:hover{border-left: 2px solid #ff6699; border-right: 2px solid #ff6699; color: #ff6699;}
+.Top_n_one_c{ width: 100%; height: 35px; position: fixed; left: 0px; border-top: 1px solid #f69; display: none;  border-bottom: 1px solid #9d9d9d;}
+.Top_n_one_c ul{ float: left; text-align: center; width: 1000px; height: 35px;}
+.Top_n_one_c ul li{ float: left; display: block; width: auto; color: #706f6f; margin: 0px 10px 0px;}
+.Top_n_one_c ul li a{color: #706f6f; padding:0px; border-left: 0px solid #FFFFFF; border-left: 0px solid #FFFFFF; border-right: 0px solid #FFFFFF; line-height: 32px; height: 32px; margin: 0px; font-size: 14px; border-bottom: 3px solid #FFFFFF;}
+.Top_n_one_c ul li a:hover{ border-bottom: 3px solid #ff6699; border-left: 0px solid #FFFFFF; border-right: 0px solid #FFFFFF;}
+.Top_n_one:hover .Top_n_one_c{display: block;}
+
+.comment_n{ width: 100%; height: auto;}
+.comment{ width: 1200px; height: auto;}
+
+.comment_top{ width: 900px; height: 150px; float: left;}
+.comment_top_img{ width: 150px; height: 150px; float: left;}
+.comment_top_img img { width: 110px; height: 110px; float: left; margin-top: 20px; margin-left: 20px;}
+.comment_top ul{ width: 750px; height: 149px; border-bottom: 1px solid #e4ecf4; float: right;}
+.comment_top ul li{ float: left; width: auto; height: 149px;}
+.comment_top ul li:nth-child(1) > textarea{ background-color: #f9f9f9; font-size: 16px; letter-spacing: 2px; line-height: 24px; display: block; float: left; width: 600px; height: 100px; color: #999999; margin-top: 20px; border: 1px solid #9d9d9d;}
+.comment_top ul li:nth-child(2) > input{ display: block; float: left; margin-left: 20px; width: 110px; height: 100px; background-color: #00a1d6; color: #FFFFFF;  font-size: 18px; border-radius: 5px; margin-top: 20px;}
+.comment_cen{width: 900px; height: auto; float: left;}
+
+.comment_cen_o{ width: 900px; height: auto; float: left;}
+.comment_cen_o_img{ width: 150px; height: 150px; float: left;}
+.comment_cen_o_img img { width: 110px; height: 110px; float: left; margin-top: 20px; margin-left: 20px;}
+.comment_cen_o_rig{ width:750px; height: auto; float: right;}
+.comment_cen_o_rig ul{ width: 750px; height: auto;}
+.comment_cen_o_rig ul li:nth-child(1){ width: 750px; margin-top: 20px; height: 40px;  float: left; line-height: 40px; font-size: 18px; color: #ff6699; letter-spacing: 1px; text-indent: 10px;}
+.comment_cen_o_rig ul li:nth-child(2){ width: 750px;  height: auto; background-color: #f6f9fa; border-radius: 10px; float: left; word-break:break-all; word-wrap : break-word; line-height: 30px; font-size: 18px; letter-spacing: 1px; overflow: hidden; text-indent: 2ch;}
+.comment_cen_o_rig ul li:nth-child(3){ width: 750px; height: auto; color: #666; font-size: 16px;}
+.comment_cen_o_rig ul li:nth-child(3) > span { display: inline-block; color: #666; font-size: 14px; position: relative;}
+.a{position: relative; width: 750px; display: none; height: auto; background-color: #92c202;}
+.a_l{ width: 50px; height: 50px; border-radius: 50%; float: left;}
+.a_l img{ width: 100%; height: 100%; border-radius: 50%;}
+.a_r{ width: 700px; height: auto;}
+.a_r_t{ width: 700px; height: 80px; background-color: #f9f9f9; font-size: 16px; letter-spacing: 2px; line-height: 24px; float: left; color: #999999; border: 1px solid #9d9d9d;}
+.a_r_s{ border: 0px solid #FFF; line-height: 20px; margin-top: 10px; text-align: center; color: #ff6699; width: 60px; float: left; background-color: #00a1d6; height: 20px;}
+
+

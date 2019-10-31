@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ssm.xingxingsystem.dao.MyVideoDao">
+
+    <resultMap id="videoMap" type="com.ssm.xingxingsystem.bean.Video">
+
+        <id column="user_id" property="userId" jdbcType="INTEGER"></id>
+        <result column="video_name" property="videoName" jdbcType="VARCHAR"></result>
+        <result column="video_cover" property="videoCover" jdbcType="VARCHAR"></result>
+        <result column="video_address" property="videoAddress" jdbcType="VARCHAR"></result>
+        <result column="upload_time" property="uploadTime" jdbcType="VARCHAR"></result>
+        <result column="top_flag" property="topFlag" jdbcType="CHAR"></result>
+        <result column="points_num" property="pointsNum" jdbcType="INTEGER"></result>
+        <result column="examine_flag" property="examineFlag" jdbcType="CHAR"></result>
+        <result column="audit_pass" property="auditPass" jdbcType="CHAR"></result>
+        <result column="viewing_flag" property="viewingFlag" jdbcType="CHAR"></result>
+    </resultMap>
+</mapper>

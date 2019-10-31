@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ssm.xingxingsystem.dao.AdminDao">
+    <!--
+       resultMap 用于配置 实体类与数据库表的映射
+       id为唯一标识 随意起名 不能重复
+       type 配置实体类的全路径名
+    -->
+    <resultMap id="adminMap" type="com.ssm.xingxingsystem.bean.Admin">
+        <!--
+            id 标签 配置 id 和  result 一样
+            column 数据库字段名
+            property 实体类属性名  小驼峰命名规则
+            jdbcType 数据库字段的实体类型 （要求  必须全部大写）
+            javaType 可以忽略
+        -->
+        <id column="id" property="id" jdbcType="INTEGER"/>
+        <result column="admin_name" property="adminName" jdbcType="VARCHAR"/>
+        <result column="admin_password" property="adminPassword" jdbcType="VARCHAR"/>
+        <result column="admin_img" property="adminImg" jdbcType="VARCHAR"/>
+
+    </resultMap>
+    <!--<select id="getUserByName" resultMap="Integer">-->
+        <!--select user_name,password from tb_users where user_name = #{userName}-->
+    <!--</select>-->
+    <resultMap id="userMap" type="com.ssm.xingxingsystem.bean.User">
+        <!--
+            id 标签 配置 id 和 result 一样
+            column 数据库字段名
+            property 实体类属性名 小驼峰命名规则
+            jdbcType 数据库字段的数据类型 （要求  必须全大写）
+            javaType 可以忽略
+        -->
+        <id column="id" property="id" jdbcType="INTEGER"/>
+        <result column="user_name" property="userName" jdbcType="VARCHAR"/>
+        <result column="user_password" property="password" jdbcType="VARCHAR"/>
+        <result column="user_num" property="userNum" jdbcType="VARCHAR"/>
+        <result column="user_context" property="userContext" jdbcType="VARCHAR"/>
+        <result column="user_birthday" property="userBirthday" jdbcType="VARCHAR"/>
+        <result column="user_img" property="userImg" jdbcType="VARCHAR"/>
+        <result column="user_sex" property="userSex" jdbcType="CHAR"/>
+        <result column="recovery_flag" property="recoveryFlag" jdbcType="CHAR"/>
+        <result column="ice_flag" property="iceFlag" jdbcType="CHAR"/>
+        <result column="del_flag" property="delFlag" jdbcType="CHAR"/>
+        <result column="user_telephone_num" property="userTelephoneNum" jdbcType="VARCHAR"/>
+        <result column="c_money" property="cMoney" jdbcType="VARCHAR"/>
+        <result column="user_email" property="userEmail" jdbcType="VARCHAR"/>
+        <result column="jc_num" property="userJc" jdbcType="INTEGER"/>
+        <result column="membership_level_id" property="membershipLevelId" jdbcType="INTEGER"/>
+    </resultMap>
+
+    <resultMap id="videoMap" type="com.ssm.xingxingsystem.bean.Video">
+
+        <id column="user_id" property="userId" jdbcType="INTEGER"></id>
+        <result column="video_name" property="videoName" jdbcType="VARCHAR"></result>
+        <result column="video_cover" property="videoCover" jdbcType="VARCHAR"></result>
+        <result column="video_address" property="videoAddress" jdbcType="VARCHAR"></result>
+        <result column="upload_time" property="uploadTime" jdbcType="VARCHAR"></result>
+        <result column="top_flag" property="topFlag" jdbcType="CHAR"></result>
+        <result column="points_num" property="pointsNum" jdbcType="INTEGER"></result>
+        <result column="examine_flag" property="examineFlag" jdbcType="CHAR"></result>
+        <result column="audit_pass" property="auditPass" jdbcType="CHAR"></result>
+        <result column="viewing_flag" property="viewingFlag" jdbcType="CHAR"></result>
+    </resultMap>
+</mapper>

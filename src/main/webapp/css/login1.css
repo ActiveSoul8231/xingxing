@@ -1,0 +1,62 @@
+@charset "UTF-8";
+/* CSS Document */
+
+*{margin:0px; padding:0px; margin:0 auto; list-style:none; text-decoration:none; font-size:12px;  font-family:"SimSun"; }
+img{ border:none;}
+  /*全部*/
+
+.top_n{ width:auto; height:80px; border:1px solid #e1e1e1;}
+.top{ width:1200px; height:80px; background-color:#FFF;}
+.top_left{ float:left; width:190px; margin-top:10px; height:60px;}
+.top_left img{ width:95%; height:90%; margin-top:5px;}
+.top_left1{ height:40px; width:190px; margin-top:25px; float: left; line-height:40px; font-size:20px; text-indent:10px; color:#666666; border-left:1px solid #666666; margin-left:10px;}
+
+.biao{ width:2300px; position: relative; height:750px; border-bottom:1px solid #e1e1e1; z-index:1;}
+.demo_n{ width:2300px; height:750px; position:relative;}
+#demo{position: absolute; overflow:hidden; width:2300px; height:750px; z-index:3;}
+#demo img {display: block;}
+#demo a {height: 750px;display: block;}
+
+/*.demo1{ height:750px; width: 2300px; border: 1px solid #FFF;  position: relative; overflow: hidden; }*/
+/*.demo1 ul{position: absolute; left:0; top:0;}*/
+/*.demo1 ul li{float:left; width:2300px; height: 750px;}*/
+/*.demo1 img{width: 2300px; height: 750px;}*/
+
+.demo2{ height:750px; width: 2300px; border: 1px solid #FFF;  position: relative; overflow: hidden; }
+.demo2 ul{position: absolute; left:0; top:0;}
+.demo2 ul li{float:left; width:2300px; height: 750px;}
+.demo2 ul li img{width: 2300px; height: 750px;}
+
+.biao_n{ width:2300px; height:750px; position:relative; z-index:20;}
+.biao_center{ width:330px; height:730px; float: left; margin-top: 40px;  margin-left:620px;}
+.biao_top{ width:330px; height:24px; margin-bottom:20px; line-height:24px; text-align:center;}
+.biao_top h3{ font-size:24px; color:#333333;}
+.biao_center_zc1 input{width:328px; float:left; height:50px; border:1px solid #ededed; font-size:14px; line-height:30px; text-indent:20px; border-radius:2px;	}
+.biao_center_zc2 input{ width:192px; float:left; height:50px; border:1px solid #ededed; font-size:14px; line-height:30px; text-indent:20px; border-radius:2px; margin-top:10px;}
+.biao_center_zc3 input{ width:126px; float:left; display: block; position: relative; height:52px; margin-left:10px; background-color:#57565f; border:none; color:#FFF; font-size:14px;line-height:30px; margin-top:10px;}
+.biao_center_zc6 input{ width:126px; float:left; display: none; position: relative; height:52px; margin-left:10px; background-color:#57565f; border:none; color:#FFF; font-size:14px;line-height:30px; margin-top:10px;}
+.biao_center_zc4 input{ width:328px; float:left; height:50px; border:1px solid #ededed; font-size:14px; line-height:30px; text-indent:20px; border-radius:2px; margin-top:10px;}
+.biao_center_zc5 input{ width:328px; float:left; height:50px; border:1px solid #ededed; font-size:14px; line-height:30px; text-indent:20px; border-radius:2px; margin-top:10px;}
+.biao_center_zc0 {position: relative;border: 5px solid lightblue;width: 100px;height:100px;margin: 5px auto;border-radius: 50%;}
+.biao_center_zc0 img{width: 100px;height: 100px;left:0; top: 0; border-radius: 50%; border: 0px solid #FFFFFF;}
+.biao_center_zc0 input{width: 100%;height:100%;opacity: 0;position: absolute;left:0;top: 0;}
+
+.biao_xieyi{ width:330px; height:46px; float:left; line-height:46px; margin-top:5px; text-indent:10px; font-size:12px; color:#999;}
+.biao_xieyi a{ color:#0066cc;}
+.biao_one input{width: 330px; height: 52px; background-color:#ff3c3c; font: normal 16px / 52px "microsoft yahei"; color: #fff; text-align: center; border-radius: 2px; border:none;}
+.biao_one input:hover{ background-color: #d72226;}
+
+
+.weibu{ width:1190px; height:148px;}
+.weibu p{ height:14px; width:1190px; float:left; text-align:center; line-height:14px;}
+.weibu p a{ color:#333333; font-size:12px; padding-right:5px;}
+.weibu p a:hover{ color:#F60; text-decoration:underline;}
+
+.weiba_n{ width:1190px; height:14px; float:left; text-align:center; color:#999999; font-size:12px;}
+.weiba_n a{ color:#999999; font-size:12px;}
+.weiba_n a:hover{ text-decoration:underline;}
+
+.weibu span{ display:block; width:76px; height:24px; float:left; margin-top:10px; margin-right:10px;}
+.weibu span img{ width:100%; height:100%;}
+
+
