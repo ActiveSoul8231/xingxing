@@ -1,7 +1,7 @@
 /*
  Navicat Premium Data Transfer
 
- Source Server         : demo
+ Source Server         : a
  Source Server Type    : MySQL
  Source Server Version : 80013
  Source Host           : localhost:3306
@@ -11,21 +11,11 @@
  Target Server Version : 80013
  File Encoding         : 65001
 
- Date: 04/11/2019 10:55:59
+ Date: 04/11/2019 16:20:24
 */
 
 SET NAMES utf8mb4;
 SET FOREIGN_KEY_CHECKS = 0;
-
--- ----------------------------
--- Table structure for tb__my_album
--- ----------------------------
-DROP TABLE IF EXISTS `tb__my_album`;
-CREATE TABLE `tb__my_album`  (
-  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '个人空间中的我的相册表',
-  `album_name` varchar(20) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '相册表名称，默认相册为ID1  ',
-  PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Table structure for tb_admin
@@ -422,6 +412,23 @@ INSERT INTO `tb_membership_level` VALUES (4, 4, NULL, NULL);
 INSERT INTO `tb_membership_level` VALUES (5, 5, NULL, NULL);
 INSERT INTO `tb_membership_level` VALUES (6, 6, NULL, NULL);
 INSERT INTO `tb_membership_level` VALUES (7, 7, NULL, NULL);
+
+-- ----------------------------
+-- Table structure for tb_my_album
+-- ----------------------------
+DROP TABLE IF EXISTS `tb_my_album`;
+CREATE TABLE `tb_my_album`  (
+  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '个人空间中的我的相册表',
+  `album_name` varchar(20) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '相册表名称，默认相册为ID1  ',
+  `user_id` int(11) NULL DEFAULT NULL COMMENT '用户ID',
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of tb_my_album
+-- ----------------------------
+INSERT INTO `tb_my_album` VALUES (1, '默认相册', 1);
+INSERT INTO `tb_my_album` VALUES (2, '啊啊啊', 1);
 
 -- ----------------------------
 -- Table structure for tb_my_collection
