@@ -143,10 +143,10 @@
                                     <input class="btn btn-sm btn-primary"  type="button" onclick="deleteVideo(${management.id})" value="删除视频">
                                         <%--审核状态--%>
                                     <c:if test="${management.examineFlag eq 48}">
-                                    <input  class="btn btn-outline btn-success" type="button" onclick="toExamine(${management.id},${management.examineFlag})" value="已审核">
+                                    <input  class="btn btn-outline btn-success" type="button" onclick="toExamine(${management.id},${management.examineFlag})" value="去审核页">
                                     </c:if>
                                     <c:if test="${management.examineFlag eq 49}">
-                                    <input  class="btn btn-outline btn-success" type="button" onclick="toExamine(${management.id},${management.examineFlag})" value="去审核">
+                                    <input  class="btn btn-outline btn-success" type="button" onclick="toExamine(${management.id},${management.examineFlag})" value="取消审核">
                                     </c:if>
                                 </td>
                             </tr>
