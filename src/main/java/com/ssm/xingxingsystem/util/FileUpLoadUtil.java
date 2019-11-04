@@ -1,4 +1,4 @@
-package com.ssh.util;
+package com.ssm.xingxingsystem.util;
 
 import org.apache.commons.io.FileUtils;
 import org.apache.struts2.ServletActionContext;
