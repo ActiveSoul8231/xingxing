@@ -17,6 +17,9 @@
     function toRecharge() {
         location.href="${pageContext.request.contextPath}/recharge/rechargeList";
     }
+    function toConsumption() {
+        location.href="${pageContext.request.contextPath}/consumption/consumptionList";
+    }
     function toPhotoList() {
         location.href="${pageContext.request.contextPath}/album/albumList";
     }
@@ -27,6 +30,7 @@
 <body>
 这是登录页面111111asdasdds
 <input type="button" value="充值记录" onclick="toRecharge()">
+<input type="button" value="消费记录" onclick="toConsumption()">
 <input type="button" value="相册展示" onclick="toPhotoList()">
 <input type="button" value="图片" onclick="PhotoList()">
 </body>
