@@ -1,31 +1,21 @@
 /*
  Navicat Premium Data Transfer
 
- Source Server         : demo
+ Source Server         : YI
  Source Server Type    : MySQL
- Source Server Version : 80013
- Source Host           : localhost:3306
- Source Schema         : xingxingsystem
+ Source Server Version : 50727
+ Source Host           : 47.92.206.78:3306
+ Source Schema         : xingxingSystem
 
  Target Server Type    : MySQL
- Target Server Version : 80013
+ Target Server Version : 50727
  File Encoding         : 65001
 
- Date: 04/11/2019 10:55:59
+ Date: 28/10/2019 18:40:47
 */
 
 SET NAMES utf8mb4;
 SET FOREIGN_KEY_CHECKS = 0;
-
--- ----------------------------
--- Table structure for tb__my_album
--- ----------------------------
-DROP TABLE IF EXISTS `tb__my_album`;
-CREATE TABLE `tb__my_album`  (
-  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '个人空间中的我的相册表',
-  `album_name` varchar(20) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '相册表名称，默认相册为ID1  ',
-  PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Table structure for tb_admin
@@ -37,12 +27,14 @@ CREATE TABLE `tb_admin`  (
   `admin_password` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   `admin_img` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 4 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of tb_admin
 -- ----------------------------
 INSERT INTO `tb_admin` VALUES (1, 'admin', 'admin', 'http://changguiying.oss-cn-beijing.aliyuncs.com/yc1/fd39cbfb5c5445d3bdefa295650b7759.jpg');
+INSERT INTO `tb_admin` VALUES (2, '2', '2', '2');
+INSERT INTO `tb_admin` VALUES (3, NULL, NULL, NULL);
 
 -- ----------------------------
 -- Table structure for tb_banner
@@ -55,7 +47,7 @@ CREATE TABLE `tb_banner`  (
   `photos_jumps` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '轮播跳转链接',
   `photos_name` varchar(200) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '轮播图名称',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 74 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 73 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of tb_banner
@@ -80,7 +72,7 @@ CREATE TABLE `tb_browse_record`  (
   `browse_record_id` int(50) NULL DEFAULT NULL COMMENT '浏览视频id',
   `browse_time` varchar(20) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '浏览时间',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 7 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 6 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of tb_browse_record
@@ -158,7 +150,7 @@ CREATE TABLE `tb_first_menu`  (
   `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '一级菜单',
   `menu_name` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '菜单名称',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 14 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 22 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of tb_first_menu
@@ -167,6 +159,13 @@ INSERT INTO `tb_first_menu` VALUES (1, '动漫');
 INSERT INTO `tb_first_menu` VALUES (3, '番剧');
 INSERT INTO `tb_first_menu` VALUES (4, '港剧');
 INSERT INTO `tb_first_menu` VALUES (13, '国产');
+INSERT INTO `tb_first_menu` VALUES (14, '电视剧');
+INSERT INTO `tb_first_menu` VALUES (15, '电影');
+INSERT INTO `tb_first_menu` VALUES (16, '啊大大');
+INSERT INTO `tb_first_menu` VALUES (17, '2');
+INSERT INTO `tb_first_menu` VALUES (18, '3');
+INSERT INTO `tb_first_menu` VALUES (19, '4');
+INSERT INTO `tb_first_menu` VALUES (20, '5');
 
 -- ----------------------------
 -- Table structure for tb_integral
@@ -218,7 +217,14 @@ CREATE TABLE `tb_label`  (
   `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '标签表：\r\n         标签写定义几个名称，例如：“暴力”，“血腥”，“色情”  等\r\n\r\n  对应的标签在代码中定义各个标签扣除的分数',
   `label_name` varchar(10) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '标签名称',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 4 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of tb_label
+-- ----------------------------
+INSERT INTO `tb_label` VALUES (1, '暴力');
+INSERT INTO `tb_label` VALUES (2, '血腥');
+INSERT INTO `tb_label` VALUES (3, '色情');
 
 -- ----------------------------
 -- Table structure for tb_login_record
@@ -407,21 +413,39 @@ DROP TABLE IF EXISTS `tb_membership_level`;
 CREATE TABLE `tb_membership_level`  (
   `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '会员等级表',
   `membership_level` int(7) NULL DEFAULT NULL COMMENT '会员等级',
-  `recharge_discount` double(11, 0) NULL DEFAULT NULL COMMENT '充值折扣',
-  `consumption_discount` double(11, 0) NULL DEFAULT NULL,
+  `recharge_discount` double(10, 2) NULL DEFAULT NULL COMMENT '充值折扣\r\n\r\n   例如  充值了10元，充值数额*等级对应的赠送充值比例+充值数额=充值金额',
+  `consumption_discount` double(10, 2) NULL DEFAULT NULL COMMENT '消费折扣\r\n\r\n      例如：  打赏了10元，打赏金额*消费折扣=被打赏人收获',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 8 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 9 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of tb_membership_level
 -- ----------------------------
-INSERT INTO `tb_membership_level` VALUES (1, 1, NULL, NULL);
-INSERT INTO `tb_membership_level` VALUES (2, 2, NULL, NULL);
-INSERT INTO `tb_membership_level` VALUES (3, 3, NULL, NULL);
-INSERT INTO `tb_membership_level` VALUES (4, 4, NULL, NULL);
-INSERT INTO `tb_membership_level` VALUES (5, 5, NULL, NULL);
-INSERT INTO `tb_membership_level` VALUES (6, 6, NULL, NULL);
-INSERT INTO `tb_membership_level` VALUES (7, 7, NULL, NULL);
+INSERT INTO `tb_membership_level` VALUES (1, 1, 0.03, 0.60);
+INSERT INTO `tb_membership_level` VALUES (2, 2, 0.06, NULL);
+INSERT INTO `tb_membership_level` VALUES (3, 3, 0.09, NULL);
+INSERT INTO `tb_membership_level` VALUES (4, 4, 0.12, NULL);
+INSERT INTO `tb_membership_level` VALUES (5, 5, 0.15, NULL);
+INSERT INTO `tb_membership_level` VALUES (6, 6, 0.18, NULL);
+INSERT INTO `tb_membership_level` VALUES (7, 7, 0.21, NULL);
+INSERT INTO `tb_membership_level` VALUES (8, 0, 0.00, 0.00);
+
+-- ----------------------------
+-- Table structure for tb_my_album
+-- ----------------------------
+DROP TABLE IF EXISTS `tb_my_album`;
+CREATE TABLE `tb_my_album`  (
+  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '个人空间中的我的相册表',
+  `album_name` varchar(20) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '相册表名称，默认相册为ID1  ',
+  `user_id` int(11) NULL DEFAULT NULL COMMENT '用户ID',
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of tb_my_album
+-- ----------------------------
+INSERT INTO `tb_my_album` VALUES (1, '默认相册', 1);
+INSERT INTO `tb_my_album` VALUES (2, '啊啊啊', 1);
 
 -- ----------------------------
 -- Table structure for tb_my_collection
@@ -471,20 +495,20 @@ INSERT INTO `tb_my_dynamics` VALUES (18, 20, '今晚吃什么呀', 'http://chang
 DROP TABLE IF EXISTS `tb_my_photos`;
 CREATE TABLE `tb_my_photos`  (
   `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '个人空间：主页：我的相册id',
-  `user_id` int(11) NULL DEFAULT NULL,
   `photo_address` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '照片地址',
   `upload_time` varchar(20) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '上传时间',
   `file_name` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '文件名称',
   `album_id` int(11) NOT NULL DEFAULT 1 COMMENT '关联相册表的id  1为默认相册',
+  `user_id` int(11) NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 45 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 31 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of tb_my_photos
 -- ----------------------------
-INSERT INTO `tb_my_photos` VALUES (28, 20, 'http://changguiying.oss-cn-beijing.aliyuncs.com/yc1/52426d7ab03942709f3b6a855382067a.jpg', NULL, NULL, 1);
-INSERT INTO `tb_my_photos` VALUES (29, 20, 'http://changguiying.oss-cn-beijing.aliyuncs.com/yc1/89912c9e30244910b6377f2d9aa2f611.jpg', NULL, NULL, 1);
-INSERT INTO `tb_my_photos` VALUES (30, 20, 'http://changguiying.oss-cn-beijing.aliyuncs.com/yc1/52426d7ab03942709f3b6a855382067a.jpg', NULL, NULL, 1);
+INSERT INTO `tb_my_photos` VALUES (28, 'http://changguiying.oss-cn-beijing.aliyuncs.com/yc1/52426d7ab03942709f3b6a855382067a.jpg', NULL, NULL, 1, 1);
+INSERT INTO `tb_my_photos` VALUES (29, 'http://changguiying.oss-cn-beijing.aliyuncs.com/yc1/89912c9e30244910b6377f2d9aa2f611.jpg', NULL, NULL, 1, 1);
+INSERT INTO `tb_my_photos` VALUES (30, 'http://changguiying.oss-cn-beijing.aliyuncs.com/yc1/52426d7ab03942709f3b6a855382067a.jpg', NULL, NULL, 2, 1);
 
 -- ----------------------------
 -- Table structure for tb_recharge_record
@@ -601,7 +625,7 @@ CREATE TABLE `tb_user`  (
 -- ----------------------------
 -- Records of tb_user
 -- ----------------------------
-INSERT INTO `tb_user` VALUES (1, '213055', '739741', '赵一凡', '这个人很懒什么都没写哦~', '1970401', '2', 'http://changguiying.oss-cn-beijing.aliyuncs.com/yc1/ce5bb6db430c452d90f75363dfe3b29a.tmp', '0', '0', '1', 100.00, '15124873908', '1171636270@qq.com', 80, 1);
+INSERT INTO `tb_user` VALUES (1, '213055', '739741', '赵一凡', '这个人很懒什么都没写哦~', '1970401', '2', 'http://changguiying.oss-cn-beijing.aliyuncs.com/yc1/ce5bb6db430c452d90f75363dfe3b29a.tmp', '0', '0', '0', 100.00, '15124873908', '1171636270@qq.com', 80, 1);
 INSERT INTO `tb_user` VALUES (9, '232231', '5958231', '李文岚', '今天阳光明媚', '19960127', '1', 'http://localhost:8080/uploadFile/1.jpg', '0', '0', '0', 102.00, '15804780093', '1846038231@qq.com', 80, 1);
 INSERT INTO `tb_user` VALUES (10, '520624', '19970128', '白子明', '这个人很懒什么都没写哦~', '19970128', '1', 'http://changguiying.oss-cn-beijing.aliyuncs.com/yc1/18b07f04cc02448da8c28876b407014b.png', '0', '0', '0', 100.00, '15334998979', '1639180478@qq.com', 80, 1);
 INSERT INTO `tb_user` VALUES (12, '796524', '19960102', '马冉', '这个人很懒什么都没写哦~', '19960102', '0', 'http://changguiying.oss-cn-beijing.aliyuncs.com/yc1/98667eee1a314c399e763ca34b60f2ff.tmp', '0', '0', '0', 200.00, '15164747652', '214398632@qq.com', 80, 1);
@@ -628,31 +652,32 @@ CREATE TABLE `tb_video_upload`  (
   `examine_flag` char(1) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '0' COMMENT '审核状态0未审核，1已审核',
   `audit_pass` char(1) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '0' COMMENT '默认为0，视频通过为1，驳回为2',
   `viewing_flag` char(1) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '0' COMMENT '0为非会员可观看，1为会员观看（判断是否大于0）',
+  `label_id` int(11) NULL DEFAULT NULL COMMENT '视频标签ID',
   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE = InnoDB AUTO_INCREMENT = 32 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of tb_video_upload
 -- ----------------------------
-INSERT INTO `tb_video_upload` VALUES (4, 9, 'w', 'http://changguiying.oss-cn-beijing.aliyuncs.com/yc1/cab678ca1092440ea17df5519d89b7ee.jpg', 'http://changguiying.oss-cn-beijing.aliyuncs.com/yc1/7833f21a5489470098d1fb624b7cd125.mp4', '2019-10-07', '0', 0, '0', '0', '0');
-INSERT INTO `tb_video_upload` VALUES (6, 9, 'b', 'http://changguiying.oss-cn-beijing.aliyuncs.com/yc1/110437ba8f114b6b90752fac349f851b.jpg', 'http://changguiying.oss-cn-beijing.aliyuncs.com/yc1/dd644c8fbc1340f5bae045a9e318d07b.mp4', '2019-10-07', '0', 0, '0', '0', '0');
-INSERT INTO `tb_video_upload` VALUES (12, 9, '尼古拉斯赵四儿', 'http://changguiying.oss-cn-beijing.aliyuncs.com/yc1/af9417f4717c403b86a05a0a996ecdec.JPG', 'http://changguiying.oss-cn-beijing.aliyuncs.com/yc1/b103649945884defaa803b99232eb765.mp4', '2019-10-09', '0', 0, '1', '1', '0');
-INSERT INTO `tb_video_upload` VALUES (13, 9, '热的快炸了', 'http://changguiying.oss-cn-beijing.aliyuncs.com/yc1/73c0f23b6d1f4a81abd2d00c0e21d0e6.JPG', 'http://changguiying.oss-cn-beijing.aliyuncs.com/yc1/af33904f8c2d47cdb4992f054fae7b97.mp4', '2019-10-09', '0', 0, '1', '2', '0');
-INSERT INTO `tb_video_upload` VALUES (15, 9, '别耍嘴', 'http://changguiying.oss-cn-beijing.aliyuncs.com/yc1/ebfefa20e35448369a4ffe715a5f6d70.JPG', 'http://changguiying.oss-cn-beijing.aliyuncs.com/yc1/9f6263053a6049ec8553d5e38ad190ea.mp4', '2019-10-09', '0', 0, '0', '0', '0');
-INSERT INTO `tb_video_upload` VALUES (16, 9, '口碑', 'http://changguiying.oss-cn-beijing.aliyuncs.com/yc1/589a7061c53a430ab14091e8c12f0d48.JPG', 'http://changguiying.oss-cn-beijing.aliyuncs.com/yc1/8e29cb179aef440f95fa24cde5793e93.mp4', '2019-10-09', '0', 0, '0', '0', '0');
-INSERT INTO `tb_video_upload` VALUES (17, 9, '中国好酒往哪搁', 'http://changguiying.oss-cn-beijing.aliyuncs.com/yc1/959ddf0f777c4106bbb83e4d627a9f9f.JPG', 'http://changguiying.oss-cn-beijing.aliyuncs.com/yc1/376e56044825493fb4b8ad852c61cb92.mp4', '2019-10-09', '0', 0, '0', '0', '0');
-INSERT INTO `tb_video_upload` VALUES (18, 9, '你好牛', 'http://changguiying.oss-cn-beijing.aliyuncs.com/yc1/acaaa05248cd473db413e12479803bb8.JPG', 'http://changguiying.oss-cn-beijing.aliyuncs.com/yc1/cd5f95e674614fa98f01439864b02088.mp4', '2019-10-09', '0', 0, '0', '0', '0');
-INSERT INTO `tb_video_upload` VALUES (19, 9, 'z', 'http://changguiying.oss-cn-beijing.aliyuncs.com/yc1/374b83e03fd84d53b4122a02f317d855.jpg', 'http://changguiying.oss-cn-beijing.aliyuncs.com/yc1/f8e16b284b09417ba797ab071074537b.mp4', '2019-10-09', '0', 0, '0', '0', '0');
-INSERT INTO `tb_video_upload` VALUES (20, 18, 'm', 'http://changguiying.oss-cn-beijing.aliyuncs.com/yc1/eca2b61b6e294610a327266226e7f39b.jpg', 'http://changguiying.oss-cn-beijing.aliyuncs.com/yc1/e3ec1481ad2342a3af8e80a4565ad314.mp4', '2019-10-09', '0', 0, '0', '0', '0');
-INSERT INTO `tb_video_upload` VALUES (21, 18, 'k', 'http://changguiying.oss-cn-beijing.aliyuncs.com/yc1/1238f0558cf247e29dbe8674bd9a8def.jpg', 'http://changguiying.oss-cn-beijing.aliyuncs.com/yc1/ce62959aa0ee4e71a94739c88af012b8.mp4', '2019-10-09', '0', 0, '0', '0', '0');
-INSERT INTO `tb_video_upload` VALUES (22, 18, 'i', 'http://changguiying.oss-cn-beijing.aliyuncs.com/yc1/32ec54eb91a04e5fbe953be0ec893b89.jpg', 'http://changguiying.oss-cn-beijing.aliyuncs.com/yc1/6d5ed7d4a2b94fad935354d25b917439.mp4', '2019-10-10', '0', 0, '0', '0', '0');
-INSERT INTO `tb_video_upload` VALUES (24, 18, 'q', 'http://changguiying.oss-cn-beijing.aliyuncs.com/yc1/5eef709a6707498e8556e20fa69bf70a.jpg', 'http://changguiying.oss-cn-beijing.aliyuncs.com/yc1/a602cd0810c14684ba14ea105c5e21a3.mp4', '2019-10-11', '0', 0, '0', '0', '0');
-INSERT INTO `tb_video_upload` VALUES (25, 18, 'x', 'http://changguiying.oss-cn-beijing.aliyuncs.com/yc1/7a0efd87d3584b7680368352e8877094.jpg', 'http://changguiying.oss-cn-beijing.aliyuncs.com/yc1/ca54b70d40b0422bb8038d1dc3648ce8.mp4', '2019-10-11', '0', 0, '0', '0', '0');
-INSERT INTO `tb_video_upload` VALUES (26, 12, 'mm', 'http://changguiying.oss-cn-beijing.aliyuncs.com/yc1/2587ed9d0b8d47f5acc3535cf17a0307.jpg', 'http://changguiying.oss-cn-beijing.aliyuncs.com/yc1/f31e05a1d3f94178902cdc4047e87e77.mp4', '2019-10-12', '0', 0, '0', '0', '0');
-INSERT INTO `tb_video_upload` VALUES (27, 12, 'mm', 'http://changguiying.oss-cn-beijing.aliyuncs.com/yc1/196912951445443fa357e00c45a8c329.jpg', 'http://changguiying.oss-cn-beijing.aliyuncs.com/yc1/f5d136ad0eca41dface60e8aebca409a.mp4', '2019-10-12', '0', 0, '0', '0', '0');
-INSERT INTO `tb_video_upload` VALUES (28, 12, 'mmm', 'http://changguiying.oss-cn-beijing.aliyuncs.com/yc1/00301c7ab826417486cbc622eaf308e7.jpeg', 'http://changguiying.oss-cn-beijing.aliyuncs.com/yc1/acc741a0990449198918125d7c82abc4.mp4', '2019-10-12', '0', 0, '0', '0', '0');
-INSERT INTO `tb_video_upload` VALUES (29, 19, 'q', 'http://changguiying.oss-cn-beijing.aliyuncs.com/yc1/259a811349ae4e56b140ce9a3114cd84.jpg', 'http://changguiying.oss-cn-beijing.aliyuncs.com/yc1/caa2504332a04e2cb53acab1bffb9a1a.mp4', '2019-10-14', '0', 0, '0', '0', '0');
-INSERT INTO `tb_video_upload` VALUES (30, 20, '成吉思汗', 'http://changguiying.oss-cn-beijing.aliyuncs.com/yc1/4c4313e29ea2498889ad031449aa301d.jpg', 'http://changguiying.oss-cn-beijing.aliyuncs.com/yc1/cdca395c7f314ecf9d9e8a5aef0fde82.mp4', '2019-10-14', '1', 0, '0', '0', '0');
-INSERT INTO `tb_video_upload` VALUES (31, 20, '你好牛', 'http://changguiying.oss-cn-beijing.aliyuncs.com/yc1/e23e3fc687dc48359bbc0fad1f334c53.jpg', 'http://changguiying.oss-cn-beijing.aliyuncs.com/yc1/df088010a85b4676a4d71bd15b769c44.mp4', '2019-10-14', '0', 0, '0', '0', '0');
+INSERT INTO `tb_video_upload` VALUES (4, 9, 'w', 'http://changguiying.oss-cn-beijing.aliyuncs.com/yc1/cab678ca1092440ea17df5519d89b7ee.jpg', 'http://changguiying.oss-cn-beijing.aliyuncs.com/yc1/7833f21a5489470098d1fb624b7cd125.mp4', '2019-10-07', '0', 0, '0', '0', '0', NULL);
+INSERT INTO `tb_video_upload` VALUES (6, 9, 'b', 'http://changguiying.oss-cn-beijing.aliyuncs.com/yc1/110437ba8f114b6b90752fac349f851b.jpg', 'http://changguiying.oss-cn-beijing.aliyuncs.com/yc1/dd644c8fbc1340f5bae045a9e318d07b.mp4', '2019-10-07', '0', 0, '0', '0', '0', NULL);
+INSERT INTO `tb_video_upload` VALUES (12, 9, '尼古拉斯赵四儿', 'http://changguiying.oss-cn-beijing.aliyuncs.com/yc1/af9417f4717c403b86a05a0a996ecdec.JPG', 'http://changguiying.oss-cn-beijing.aliyuncs.com/yc1/b103649945884defaa803b99232eb765.mp4', '2019-10-09', '0', 0, '1', '1', '0', NULL);
+INSERT INTO `tb_video_upload` VALUES (13, 9, '热的快炸了', 'http://changguiying.oss-cn-beijing.aliyuncs.com/yc1/73c0f23b6d1f4a81abd2d00c0e21d0e6.JPG', 'http://changguiying.oss-cn-beijing.aliyuncs.com/yc1/af33904f8c2d47cdb4992f054fae7b97.mp4', '2019-10-09', '0', 0, '1', '2', '0', NULL);
+INSERT INTO `tb_video_upload` VALUES (15, 9, '别耍嘴', 'http://changguiying.oss-cn-beijing.aliyuncs.com/yc1/ebfefa20e35448369a4ffe715a5f6d70.JPG', 'http://changguiying.oss-cn-beijing.aliyuncs.com/yc1/9f6263053a6049ec8553d5e38ad190ea.mp4', '2019-10-09', '0', 0, '0', '0', '0', NULL);
+INSERT INTO `tb_video_upload` VALUES (16, 9, '口碑', 'http://changguiying.oss-cn-beijing.aliyuncs.com/yc1/589a7061c53a430ab14091e8c12f0d48.JPG', 'http://changguiying.oss-cn-beijing.aliyuncs.com/yc1/8e29cb179aef440f95fa24cde5793e93.mp4', '2019-10-09', '0', 0, '0', '0', '0', NULL);
+INSERT INTO `tb_video_upload` VALUES (17, 9, '中国好酒往哪搁', 'http://changguiying.oss-cn-beijing.aliyuncs.com/yc1/959ddf0f777c4106bbb83e4d627a9f9f.JPG', 'http://changguiying.oss-cn-beijing.aliyuncs.com/yc1/376e56044825493fb4b8ad852c61cb92.mp4', '2019-10-09', '0', 0, '0', '0', '0', NULL);
+INSERT INTO `tb_video_upload` VALUES (18, 9, '你好牛', 'http://changguiying.oss-cn-beijing.aliyuncs.com/yc1/acaaa05248cd473db413e12479803bb8.JPG', 'http://changguiying.oss-cn-beijing.aliyuncs.com/yc1/cd5f95e674614fa98f01439864b02088.mp4', '2019-10-09', '0', 0, '0', '0', '0', NULL);
+INSERT INTO `tb_video_upload` VALUES (19, 9, 'z', 'http://changguiying.oss-cn-beijing.aliyuncs.com/yc1/374b83e03fd84d53b4122a02f317d855.jpg', 'http://changguiying.oss-cn-beijing.aliyuncs.com/yc1/f8e16b284b09417ba797ab071074537b.mp4', '2019-10-09', '0', 0, '0', '0', '0', NULL);
+INSERT INTO `tb_video_upload` VALUES (20, 18, 'm', 'http://changguiying.oss-cn-beijing.aliyuncs.com/yc1/eca2b61b6e294610a327266226e7f39b.jpg', 'http://changguiying.oss-cn-beijing.aliyuncs.com/yc1/e3ec1481ad2342a3af8e80a4565ad314.mp4', '2019-10-09', '0', 0, '0', '0', '0', NULL);
+INSERT INTO `tb_video_upload` VALUES (21, 18, 'k', 'http://changguiying.oss-cn-beijing.aliyuncs.com/yc1/1238f0558cf247e29dbe8674bd9a8def.jpg', 'http://changguiying.oss-cn-beijing.aliyuncs.com/yc1/ce62959aa0ee4e71a94739c88af012b8.mp4', '2019-10-09', '0', 0, '0', '0', '0', NULL);
+INSERT INTO `tb_video_upload` VALUES (22, 18, 'i', 'http://changguiying.oss-cn-beijing.aliyuncs.com/yc1/32ec54eb91a04e5fbe953be0ec893b89.jpg', 'http://changguiying.oss-cn-beijing.aliyuncs.com/yc1/6d5ed7d4a2b94fad935354d25b917439.mp4', '2019-10-10', '0', 0, '0', '0', '0', NULL);
+INSERT INTO `tb_video_upload` VALUES (24, 18, 'q', 'http://changguiying.oss-cn-beijing.aliyuncs.com/yc1/5eef709a6707498e8556e20fa69bf70a.jpg', 'http://changguiying.oss-cn-beijing.aliyuncs.com/yc1/a602cd0810c14684ba14ea105c5e21a3.mp4', '2019-10-11', '0', 0, '0', '0', '0', NULL);
+INSERT INTO `tb_video_upload` VALUES (25, 18, 'x', 'http://changguiying.oss-cn-beijing.aliyuncs.com/yc1/7a0efd87d3584b7680368352e8877094.jpg', 'http://changguiying.oss-cn-beijing.aliyuncs.com/yc1/ca54b70d40b0422bb8038d1dc3648ce8.mp4', '2019-10-11', '0', 0, '0', '0', '0', NULL);
+INSERT INTO `tb_video_upload` VALUES (26, 12, 'mm', 'http://changguiying.oss-cn-beijing.aliyuncs.com/yc1/2587ed9d0b8d47f5acc3535cf17a0307.jpg', 'http://changguiying.oss-cn-beijing.aliyuncs.com/yc1/f31e05a1d3f94178902cdc4047e87e77.mp4', '2019-10-12', '0', 0, '0', '0', '0', NULL);
+INSERT INTO `tb_video_upload` VALUES (27, 12, 'mm', 'http://changguiying.oss-cn-beijing.aliyuncs.com/yc1/196912951445443fa357e00c45a8c329.jpg', 'http://changguiying.oss-cn-beijing.aliyuncs.com/yc1/f5d136ad0eca41dface60e8aebca409a.mp4', '2019-10-12', '0', 0, '0', '0', '0', NULL);
+INSERT INTO `tb_video_upload` VALUES (28, 12, 'mmm', 'http://changguiying.oss-cn-beijing.aliyuncs.com/yc1/00301c7ab826417486cbc622eaf308e7.jpeg', 'http://changguiying.oss-cn-beijing.aliyuncs.com/yc1/acc741a0990449198918125d7c82abc4.mp4', '2019-10-12', '0', 0, '0', '0', '0', NULL);
+INSERT INTO `tb_video_upload` VALUES (29, 19, 'q', 'http://changguiying.oss-cn-beijing.aliyuncs.com/yc1/259a811349ae4e56b140ce9a3114cd84.jpg', 'http://changguiying.oss-cn-beijing.aliyuncs.com/yc1/caa2504332a04e2cb53acab1bffb9a1a.mp4', '2019-10-14', '0', 0, '0', '0', '0', NULL);
+INSERT INTO `tb_video_upload` VALUES (30, 20, '成吉思汗', 'http://changguiying.oss-cn-beijing.aliyuncs.com/yc1/4c4313e29ea2498889ad031449aa301d.jpg', 'http://changguiying.oss-cn-beijing.aliyuncs.com/yc1/cdca395c7f314ecf9d9e8a5aef0fde82.mp4', '2019-10-14', '1', 0, '0', '0', '0', NULL);
+INSERT INTO `tb_video_upload` VALUES (31, 20, '你好牛', 'http://changguiying.oss-cn-beijing.aliyuncs.com/yc1/e23e3fc687dc48359bbc0fad1f334c53.jpg', 'http://changguiying.oss-cn-beijing.aliyuncs.com/yc1/df088010a85b4676a4d71bd15b769c44.mp4', '2019-10-14', '0', 0, '0', '0', '0', NULL);
 
 SET FOREIGN_KEY_CHECKS = 1;
