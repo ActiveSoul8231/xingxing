@@ -122,7 +122,7 @@ public class AliyunOSSUtil {
         String fileName = null;
         try {
 
-            // 以输入流的形式上传文件*
+            // 以输入流的形式上传文件
             InputStream is = new FileInputStream(file);
 
             // 文件名 如果出现重复，则重新生成名字，再上传
