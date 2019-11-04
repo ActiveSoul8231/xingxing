@@ -16,7 +16,7 @@
 <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script type="text/javascript">
     function insertObj() {
-        location.href="${pageContext.request.contextPath}//"
+        location.href="${pageContext.request.contextPath}/consumption/toConsumption"
     }
 </script>
 <script type="text/javascript">
@@ -38,8 +38,8 @@
     });
 </script>
 <body>
-<input type="button" value="充值" onclick="insertObj()">
-<table class="table table-hover" id="addressTable" >
+<input type="button" value="打赏" onclick="insertObj()">
+<table class="table table-hover" id="addres  sTable" >
     <caption>消费记录</caption>
     <thead>
     <tr>
