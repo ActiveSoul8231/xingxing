@@ -78,11 +78,11 @@
                             <th>操作</th>
                         </tr>
                         <tr>
-                            <td>${Videos.videoName}</td><br/>
-                            <td><img  width="60px" height="60px" src="${Videos.videoCover}"/></td>
+                            <td>${managementVideo.videoName}</td><br/>
+                            <td><img  width="60px" height="60px" src="${managementVideo.videoCover}"/></td>
                             <td>
 
-                                <div class="icon">  <a id="link" href="#" style="cursor:hand;"><img  width="60px" height="60px" src="${Videos.videoCover}"/></a><!--定义模态框id="link"-->
+                                <div class="icon">  <a id="link" href="#" style="cursor:hand;"><img  width="60px" height="60px" src="${managementVideo.videoCover}"/></a><!--定义模态框id="link"-->
                                     <!-------------------modal----https://www.cnblogs.com/nightnine/p/6211857.html--->
                                     <div id="myModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="static">
                                         <!-------Bootstrap 模态框避免点击背景处关闭--------https://blog.csdn.net/gloomy_114/article/details/51611734-->
@@ -101,9 +101,9 @@
                                 </div>
                             </td>
                             <td>
-                                <input class="btn btn-warning" type="button" onclick="updateAuditPass(${Videos.id},<%="1"%>)" value="通过">
-                                <input   class="btn btn-danger"  type="button" onclick="updateAuditPass(${Videos.id},<%="2"%>)" value="驳回">
-                                <input   class="btn btn-danger"  type="button" onclick="cancelExamine(${Videos.id},<%="1"%>)" value="取消审核">
+                                <input class="btn btn-warning" type="button" onclick="updateAuditPass(${managementVideo.id},<%="1"%>)" value="通过">
+                                <input   class="btn btn-danger"  type="button" onclick="updateAuditPass(${managementVideo.id},<%="2"%>)" value="驳回">
+                                <input   class="btn btn-danger"  type="button" onclick="cancelExamine(${managementVideo.id},<%="1"%>)" value="取消审核">
                             </td>
                         </tr>
                     </table>
