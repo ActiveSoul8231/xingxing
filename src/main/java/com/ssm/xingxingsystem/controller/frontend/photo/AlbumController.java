@@ -40,7 +40,6 @@ public class AlbumController {
     }
     @RequestMapping(path = "insertAlbum",method = RequestMethod.POST)
     public String insertAlbum(Album album){
-    album.setUserId(1);
     albumService.insertAlbum(album);
     return "redirect:/album/albumList";
 
@@ -55,7 +54,6 @@ public class AlbumController {
     @RequestMapping(path = "albumPhoto",method = RequestMethod.GET)
     public ModelAndView albumPhoto(Integer id){
         ModelAndView modelAndView = new ModelAndView();
-
         List<Photo> list = albumService.getPhotoByAlbumId(id);
         modelAndView.addObject("photoList",list);
         modelAndView.addObject("albumId",id);
