@@ -37,7 +37,7 @@ public class AdminController {
     public ModelAndView userList( Integer pageNow , Integer pageSize, String selectByValue){
         ModelAndView modelAndView = new ModelAndView();
         Integer tableCount=adminService.getUserCount();/*获取列表总数*/
-        PageCountUtil pageCountUtil = new PageCountUtil(pageNow, pageSize, tableCount);
+        PageCountUtil pageCountUtil = new PageCountUtil(pageNow, pageSize, tableCount);/*调用分页工具进行分页*/
         List<User>  userList = adminService.getAllUser(selectByValue,pageCountUtil);/*获取全部用户信息*/
         modelAndView.setViewName("backend/admin/userList");
         modelAndView.addObject("userList",userList);
@@ -45,6 +45,7 @@ public class AdminController {
         modelAndView.addObject("selectByValue",selectByValue);
         return modelAndView;
     }
+
     /**
      *@author baiziming
      *@method updateUserFlag 更改用户状态
@@ -84,6 +85,7 @@ public class AdminController {
         modelAndView.setViewName("redirect:userList");
         return modelAndView;
     }
+
     /**
      *@author baiziming
      *@method deleteUser            删除用户信息
@@ -92,8 +94,8 @@ public class AdminController {
     @RequestMapping(path = "deleteUser",method = RequestMethod.GET)
     public ModelAndView deleteUser(Integer id ){
         ModelAndView modelAndView = new ModelAndView();
-        adminService.deleteUserById(id);
-        modelAndView.setViewName("redirect:userList");
+        adminService.deleteUserById(id);/*通过用户ID删除用户信息*/
+        modelAndView.setViewName("redirect:userList");/*删除用户后需要重定向刷新当前用户信息*/
         return modelAndView;
     }
 

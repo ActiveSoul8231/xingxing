@@ -34,6 +34,10 @@ public class AdminServiceImpl implements AdminService {
         return userList;
     }
 
+    /**
+     *@author baiziming
+     *@method getUserCount 获取普通用户总条数
+     **/
     @Override
     public Integer getUserCount() {
         return adminDao.getUserCount();
