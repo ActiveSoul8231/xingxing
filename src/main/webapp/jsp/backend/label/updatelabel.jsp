@@ -7,6 +7,7 @@
 
 <body>
 <table>
+
     <form  action="${pageContext.request.contextPath}/label/labelUpdate"  method="post">
         <input type="hidden" name="id" value="${labelList.id}">
         要修改的标签名字<input type="text" name="labelName" value="${labelList.labelName}">

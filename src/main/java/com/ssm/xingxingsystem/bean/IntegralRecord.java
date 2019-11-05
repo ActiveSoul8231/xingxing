@@ -6,6 +6,7 @@ public class IntegralRecord {
     private String operationProject;
     private String operationTime;
 
+
     public Integer getId() {
         return id;
     }

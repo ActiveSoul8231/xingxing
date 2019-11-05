@@ -1,18 +1,12 @@
 package com.ssm.xingxingsystem.dao
 
 import com.ssm.xingxingsystem.bean.Label
-import com.ssm.xingxingsystem.bean.menu.FirstMenu
 import com.ssm.xingxingsystem.util.PageCountUtil
-import org.apache.ibatis.annotations.Delete
-import org.apache.ibatis.annotations.Insert
-import org.apache.ibatis.annotations.Mapper
-import org.apache.ibatis.annotations.Param
-import org.apache.ibatis.annotations.ResultMap
-import org.apache.ibatis.annotations.Select
-import org.apache.ibatis.annotations.Update
+import org.apache.ibatis.annotations.*
 
 @Mapper
 interface LabelDao {
+
 
     @ResultMap("labelMap")
     @Select("""

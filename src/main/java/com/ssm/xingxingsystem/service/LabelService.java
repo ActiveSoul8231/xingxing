@@ -6,6 +6,7 @@ import com.ssm.xingxingsystem.util.PageCountUtil;
 import java.util.List;
 
 public interface LabelService {
+
     List<Label> selectlabel(PageCountUtil pageCountUtil, String labelName);
 
     Label selectlabelBy(Integer id);

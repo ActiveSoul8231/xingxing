@@ -6,6 +6,7 @@ public class Level {
     private Double rechargeDiscount;
     private Double consumptionDiscount;
 
+
     public Integer getId() {
         return id;
     }

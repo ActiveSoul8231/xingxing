@@ -4,7 +4,6 @@ import com.ssm.xingxingsystem.bean.Label;
 import com.ssm.xingxingsystem.dao.LabelDao;
 import com.ssm.xingxingsystem.service.LabelService;
 import com.ssm.xingxingsystem.util.PageCountUtil;
-import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -14,6 +13,7 @@ import java.util.List;
 @Service
 @Transactional
 public class LabelServiceImpl implements LabelService {
+
     @Autowired
     private LabelDao labelDao;
 

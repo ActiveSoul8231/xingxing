@@ -9,6 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 @Transactional
 @Service
 public class VipServiceImpl implements VipService {
+
     @Autowired
     private VipDao vipDao;
 

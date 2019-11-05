@@ -15,6 +15,7 @@ public class vipController {
 
 
 
+
     @RequestMapping(path = "toVip",method = RequestMethod.GET)
     public String userLogin(User user){
         return "frontend/vip/vipkt";

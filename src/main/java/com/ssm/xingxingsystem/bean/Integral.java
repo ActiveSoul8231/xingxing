@@ -5,6 +5,7 @@ public class Integral {
     private Integer userId;
     private Integer integralNum;
 
+
     public Integer getId() {
         return id;
     }

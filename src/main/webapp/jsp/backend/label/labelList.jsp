@@ -11,6 +11,7 @@
     function insertObj() {
         location.href="${pageContext.request.contextPath}/label/insertLabel";
 
+
     }
 
     function updateObj(id) {

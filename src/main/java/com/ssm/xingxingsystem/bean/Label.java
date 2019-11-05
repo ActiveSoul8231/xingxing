@@ -19,4 +19,5 @@ public class Label {
     public void setLabelName(String labelName) {
         this.labelName = labelName;
     }
+
 }

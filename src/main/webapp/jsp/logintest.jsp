@@ -41,5 +41,6 @@
 <input type="button" value="图片" onclick="PhotoList()">
 <input type="button" value="标签" onclick="Label()">
 <input type="button" value="会员开通页面" onclick="VIP()">
+
 </body>
 </html>
