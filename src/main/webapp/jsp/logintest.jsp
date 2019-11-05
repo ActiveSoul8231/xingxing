@@ -26,6 +26,12 @@
     function PhotoList() {
         location.href="${pageContext.request.contextPath}/photo/photoList";
     }
+    function Label() {
+        location.href="${pageContext.request.contextPath}/label/labelList";
+    }
+    function VIP() {
+        location.href="${pageContext.request.contextPath}/vip/toVip";
+    }
 </script>
 <body>
 这是登录页面111111asdasdds
@@ -33,5 +39,7 @@
 <input type="button" value="消费记录" onclick="toConsumption()">
 <input type="button" value="相册展示" onclick="toPhotoList()">
 <input type="button" value="图片" onclick="PhotoList()">
+<input type="button" value="标签" onclick="Label()">
+<input type="button" value="会员开通页面" onclick="VIP()">
 </body>
 </html>
