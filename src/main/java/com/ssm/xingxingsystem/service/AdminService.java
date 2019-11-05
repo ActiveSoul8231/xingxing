@@ -15,6 +15,10 @@ import java.util.List;
 public interface AdminService {
     List<User> getAllUser(String selectByValue, PageCountUtil pageCountUtil);
 
+    /**
+     *@author baiziming
+     *@method getUserCount 获取普通用户总条数
+     **/
     Integer getUserCount();
 
     User getUserById(Integer id);

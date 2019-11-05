@@ -25,6 +25,11 @@ public interface AdminDao {
     </script>""")
     def List<User> getAllUser(@Param("selectByValue")String selectByValue,@Param("pageCount") Integer pageCount,@Param("pageSize") Integer pageSize)
 
+
+    /**
+     *@author baiziming
+     *@method getUserCount 获取普通用户总条数
+     **/
     @ResultType(Integer)
     @Select("select count(id) from tb_user")
     def int getUserCount()
