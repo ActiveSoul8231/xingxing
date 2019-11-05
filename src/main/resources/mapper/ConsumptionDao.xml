@@ -11,13 +11,6 @@
         <result column="consumption_time" property="consumptionTime" jdbcType="VARCHAR"/>
     </resultMap>
     <resultMap id="userMap" type="com.ssm.xingxingsystem.bean.User">
-        <!--
-            id 标签 配置 id 和 result 一样
-            column 数据库字段名
-            property 实体类属性名 小驼峰命名规则
-            jdbcType 数据库字段的数据类型 （要求  必须全大写）
-            javaType 可以忽略
-        -->
         <id column="id" property="id" jdbcType="INTEGER"/>
         <result column="user_name" property="userName" jdbcType="VARCHAR"/>
         <result column="user_password" property="password" jdbcType="VARCHAR"/>
