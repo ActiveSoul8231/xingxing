@@ -21,6 +21,7 @@ public class ConsumptionServiceImpl implements ConsumptionService {
     @Autowired
     private HttpServletRequest request;
 
+
     //消费展示
     @Override
     public List<Consumption> consumptionList(Integer id) {
@@ -43,15 +44,20 @@ public class ConsumptionServiceImpl implements ConsumptionService {
         consumptionDao.insertConsumption(format,consumptionAmount,id);
     }
 
+    //固定打赏所看视频发布者2元
     @Override
-    public void Consumption2(Integer id,Integer spId) {
+    public void Consumption2(Double consumptionAmount,Integer id,Integer spId) {
         User user = consumptionDao.getUserById(id);
         double money = user.getcMoney() - 2;
         consumptionDao.updateMoney(money,id);
-        consumptionDao.getUserById(spId);
+        User sp = consumptionDao.getUserById(spId);
+        money = consumptionAmount * 0.6 + sp.getcMoney();
+        consumptionDao.updateMoney(money,id);
 
-
-
+        Date date = new Date();
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        String format = sdf.format(date);
+        consumptionDao.Consumption2(format,id,consumptionAmount);
     }
 
 

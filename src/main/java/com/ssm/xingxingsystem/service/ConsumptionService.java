@@ -9,5 +9,5 @@ public interface ConsumptionService {
 
     void Consumption(Double consumptionAmount, Integer id, Integer spId);
 
-    void Consumption2(Integer id,Integer spId);
+    void Consumption2(Double consumptionAmount,Integer id,Integer spId);
 }
