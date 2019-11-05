@@ -3,8 +3,7 @@ package com.ssm.xingxingsystem.controller.frontend.photo;
 import com.ssm.xingxingsystem.bean.Photo;
 import com.ssm.xingxingsystem.service.AlbumService;
 import com.ssm.xingxingsystem.service.PhotoService;
-
-import com.ssm.xingxingsystem.util.PageCountUtil;
+import com.ssm.xingxingsystem.util.AliyunOSSUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,7 +14,6 @@ import org.springframework.web.servlet.ModelAndView;
 import javax.servlet.http.HttpServletRequest;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.List;
 
 @Controller
 @RequestMapping("photo")
@@ -51,7 +49,7 @@ public class PhotoController {
     @RequestMapping(path = "insertPhoto",method = RequestMethod.POST)
     public String insertPhoto(MultipartFile upload, HttpServletRequest request,Integer albumId){
 //        User user = (User) request.getSession().getAttribute("user");
-        String s = com.demo.cilicili.website.util.AliyunOSSUtil.uploadObject2OSS(upload);
+        String s = AliyunOSSUtil.uploadObject2OSS(upload);
         Photo Photo = new Photo();
         Photo.setUserId(1);
 //        Photo.setUserId(user.getId());
