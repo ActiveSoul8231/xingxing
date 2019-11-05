@@ -23,8 +23,9 @@
     function toPhotoList() {
         location.href="${pageContext.request.contextPath}/album/albumList";
     }
-    function PhotoList() {
-        location.href="${pageContext.request.contextPath}/photo/photoList";
+
+    function DynamicList() {
+        location.href="${pageContext.request.contextPath}/dynamic/dynamicList";
     }
 </script>
 <body>
@@ -32,6 +33,7 @@
 <input type="button" value="充值记录" onclick="toRecharge()">
 <input type="button" value="消费记录" onclick="toConsumption()">
 <input type="button" value="相册展示" onclick="toPhotoList()">
-<input type="button" value="图片" onclick="PhotoList()">
+
+<input type="button" value="我的动态" onclick="DynamicList()">
 </body>
 </html>

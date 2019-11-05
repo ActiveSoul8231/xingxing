@@ -35,6 +35,10 @@ public interface PhotoDao {
 
     @ResultMap("photo")
 //    @Select("insert into tb_my_photos (photo_address,upload_time,file_name,album_id,user_id,) values(#{p.photoAddress},#{p.uploadTime},#{p.fileName},#{p.userId},#{p.albumId})")
-    @Select("insert into tb_my_photos (photo_address,upload_time,file_name,album_id,user_id) values(#{p.photoAddress},#{p.uploadTime},#{p.fileName},#{p.userId},#{p.albumId})")
+    @Select("insert into tb_my_photos (photo_address,upload_time,file_name,album_id,user_id) values(#{p.photoAddress},#{p.uploadTime},#{p.fileName},#{p.albumId},#{p.userId})")
     def void insertPhoto(@Param("p")Photo photo)
+
+    @ResultMap("photo")
+    @Select("select * from tb_my_photos where id = #{id}")
+    def Photo getPhotoById(int id)
 }

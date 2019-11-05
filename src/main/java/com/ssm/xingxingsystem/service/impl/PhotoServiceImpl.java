@@ -31,5 +31,10 @@ public class PhotoServiceImpl implements PhotoService {
         photoDao.insertPhoto(photo);
     }
 
+    @Override
+    public Photo getPhotoById(Integer id) {
+        return photoDao.getPhotoById(id);
+    }
+
 
 }

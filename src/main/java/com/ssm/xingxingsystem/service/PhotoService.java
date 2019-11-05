@@ -12,4 +12,6 @@ public interface PhotoService {
 
 
     void insertPhoto(Photo photo);
+
+    Photo getPhotoById(Integer id);
 }
