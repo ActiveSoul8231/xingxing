@@ -10,22 +10,4 @@
         <result column="consumption_items" property="consumptionItems" jdbcType="INTEGER"/>
         <result column="consumption_time" property="consumptionTime" jdbcType="VARCHAR"/>
     </resultMap>
-    <resultMap id="userMap" type="com.ssm.xingxingsystem.bean.User">
-        <id column="id" property="id" jdbcType="INTEGER"/>
-        <result column="user_name" property="userName" jdbcType="VARCHAR"/>
-        <result column="user_password" property="password" jdbcType="VARCHAR"/>
-        <result column="user_num" property="userNum" jdbcType="VARCHAR"/>
-        <result column="user_context" property="userContext" jdbcType="VARCHAR"/>
-        <result column="user_birthday" property="userBirthday" jdbcType="VARCHAR"/>
-        <result column="user_img" property="userImg" jdbcType="VARCHAR"/>
-        <result column="user_sex" property="userSex" jdbcType="CHAR"/>
-        <result column="recovery_flag" property="recoveryFlag" jdbcType="CHAR"/>
-        <result column="ice_flag" property="iceFlag" jdbcType="CHAR"/>
-        <result column="del_flag" property="delFlag" jdbcType="CHAR"/>
-        <result column="user_telephone_num" property="userTelephoneNum" jdbcType="VARCHAR"/>
-        <result column="c_money" property="cMoney" jdbcType="VARCHAR"/>
-        <result column="user_email" property="userEmail" jdbcType="VARCHAR"/>
-        <result column="jc_num" property="userJc" jdbcType="INTEGER"/>
-        <result column="membership_level_id" property="membershipLevelId" jdbcType="INTEGER"/>
-    </resultMap>
 </mapper>
