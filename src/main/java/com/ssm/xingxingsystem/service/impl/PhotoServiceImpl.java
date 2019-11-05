@@ -36,5 +36,10 @@ public class PhotoServiceImpl implements PhotoService {
         return photoDao.getPhotoById(id);
     }
 
+    @Override
+    public void deletePhoto(Integer id) {
+        photoDao.deletePhoto(id);
+    }
+
 
 }

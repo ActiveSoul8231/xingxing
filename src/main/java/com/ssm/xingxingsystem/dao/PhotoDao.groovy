@@ -41,4 +41,8 @@ public interface PhotoDao {
     @ResultMap("photo")
     @Select("select * from tb_my_photos where id = #{id}")
     def Photo getPhotoById(int id)
+
+    @ResultMap("photo")
+    @Select("delete from tb_my_photos where id=#{id}")
+    def void deletePhoto(@Param("id")int id)
 }
