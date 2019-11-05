@@ -11,7 +11,7 @@
 <body>
 <form action="${pageContext.request.contextPath}/photo/insertPhoto" method="post" enctype="multipart/form-data">
 <%--    <input hidden="file" name="aId" value="${albumId}">--%>
-    相册ID：****${albumId}****<br/>
+    相册ID：****${albumId}****✧(≖ ◡ ≖✿ <br/>
 <%--   这是相册ID--%>
     <input type="hidden" name="albumId" value="${albumId}">
     <input type="file" name="upload">

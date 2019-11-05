@@ -1,10 +1,7 @@
 package com.ssm.xingxingsystem.service;
-
 import com.ssm.xingxingsystem.bean.Photo;
 import com.ssm.xingxingsystem.util.PageCountUtil;
-
 import java.util.List;
-
 public interface PhotoService {
     Integer getTableCount();
 
@@ -12,4 +9,8 @@ public interface PhotoService {
 
 
     void insertPhoto(Photo photo);
+
+    Photo getPhotoById(Integer id);
+
+    void deletePhoto(Integer id);
 }

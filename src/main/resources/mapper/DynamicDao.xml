@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--动态-->
+<mapper namespace="com.ssm.xingxingsystem.dao.DynamicDao">
+    <resultMap id="Dynamic" type="com.ssm.xingxingsystem.bean.Dynamic">
+        <id column="id" property="id" jdbcType="INTEGER" />
+        <result column="user_id" property="userId" jdbcType="VARCHAR"/>
+        <result column="dynamic_content" property="dynamicContent" jdbcType="VARCHAR"/>
+        <result column="dynamic_photos_address" property="dynamicPhotosAddress" jdbcType="VARCHAR"/>
+                <result column="dynamic_date" property="dynamicDate" jdbcType="VARCHAR"/>
+    </resultMap>
+</mapper>
