@@ -22,6 +22,6 @@ public class vipController {
     @RequestMapping(path = "vipsj",method = RequestMethod.POST)
     public String vipsj(Integer vipTime){
 
-        return "";
+        return "logintest";
     }
 }
