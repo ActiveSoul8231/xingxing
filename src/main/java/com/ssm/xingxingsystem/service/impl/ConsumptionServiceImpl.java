@@ -21,9 +21,37 @@ public class ConsumptionServiceImpl implements ConsumptionService {
     @Autowired
     private HttpServletRequest request;
 
+    //消费展示
     @Override
-    public List<Consumption> consumptionList() {
-        return consumptionDao.consumptionList();
+    public List<Consumption> consumptionList(Integer id) {
+        return consumptionDao.consumptionList(id);
+    }
+
+    //自定义消费
+    @Override
+    public void Consumption(Double consumptionAmount, Integer id, Integer spId) {
+        User user=consumptionDao.getUserById(id);
+        double money = user.getcMoney() - consumptionAmount;
+        consumptionDao.updateMoney(money,id);
+        User sp=consumptionDao.getUserById(spId);
+        money = consumptionAmount * 0.6+sp.getcMoney() ;
+        consumptionDao.updateMoney(money,id);
+
+        Date date = new Date();
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        String format = sdf.format(date);
+        consumptionDao.insertConsumption(format,consumptionAmount,id);
+    }
+
+    @Override
+    public void Consumption2(Integer id,Integer spId) {
+        User user = consumptionDao.getUserById(id);
+        double money = user.getcMoney() - 2;
+        consumptionDao.updateMoney(money,id);
+        consumptionDao.getUserById(spId);
+
+
+
     }
 
 

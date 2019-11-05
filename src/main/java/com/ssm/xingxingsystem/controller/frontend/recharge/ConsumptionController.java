@@ -19,20 +19,41 @@ public class ConsumptionController {
     @Autowired
     HttpServletRequest request;
 
-
     //打赏展示
     @RequestMapping(path = "consumptionList",method = RequestMethod.GET)
     public ModelAndView consumptionList(){
+        // nteger userId = (Integer) request.getSession().getAttribute("userId");
+        Integer id=12;
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("frontend/recharge/consumptionList");
-        List<Consumption> list=consumptionService.consumptionList();
+        List<Consumption> list=consumptionService.consumptionList(id);
         modelAndView.addObject("consumptionList",list);
         modelAndView.addObject("consumptionLength",list.size());
         return modelAndView;
     }
 
-    @RequestMapping(path = "consumption",method = RequestMethod.POST)
-    public void consumption(Double consumptionAmount,Integer id,Integer userId){
+    //打赏页面跳转
+    @RequestMapping(path = "toConsumption")
+    public String consumption(){
+        return "frontend/recharge/Consumption";
+    }
 
+    //自定义打赏
+    @RequestMapping(path = "consumption",method = RequestMethod.POST)
+    public String Consumption(Double consumptionAmount,Integer spId){
+//      Integer id=request.getSession().setAttribute(id);
+        Integer id=1;
+        spId=9;
+        consumptionService.Consumption(consumptionAmount,id,spId);
+        return "redirect:consumptionList";
+    }
+
+    //固定打赏金额
+    @RequestMapping(path = "Consumption2",method = RequestMethod.POST)
+    public String Consumptin2(Integer spId){
+//      Integer id=request.getSession().setAttribute(id);
+        Integer id=1;
+        consumptionService.Consumption2(id,spId);
+        return null;
     }
 }
