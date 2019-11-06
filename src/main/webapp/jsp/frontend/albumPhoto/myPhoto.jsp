@@ -9,15 +9,7 @@
 <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script language="javascript" type="text/javascript" src="../../static/My97DatePicker/WdatePicker.js"></script>
 <script type="text/javascript">
-    window.onload=function () {
-        var pageSize = "${pageCountUtil.pageSize}"
-        var options = $("#pageSize").find("option"); // select下所有的option
-        for(var i in options){
-            if(pageSize == options[i].value){
-                $("#pageSize option[value="+pageSize+"]").attr("selected",true);
-            }
-        }
-    }
+
     function page(pageNow) {
         var pageSize = $("#pageSize option:selected").val();
         location.href= "${pageContext.request.contextPath}/album/albumPhoto?pageNow="
@@ -27,22 +19,11 @@
         location.href="${pageContext.request.contextPath}/photo/toInsertPhoto?albumId=${albumId}";
     }
 
-    function updateObj(id) {
-
-    }
-
     function deleteObj(id) {
         var albumId = $("#albumId").val();
         location.href="${pageContext.request.contextPath}/photo/deletePhoto?id="+id+"&albumId="+albumId;
     }
 
-    function selectObj() {
-        var beginTime = $("#beginTime").val();
-        var endTime = $("#endTime").val();
-        var fileName = $("#fileName").val();
-        location.href= "${pageContext.request.contextPath}/photo/photoList?beginTime="
-            +beginTime+"&endTime="+endTime+"&fileName="+fileName;
-    }
 </script>
 <body>
 <input type="hidden" id="albumId" value="${albumId}">

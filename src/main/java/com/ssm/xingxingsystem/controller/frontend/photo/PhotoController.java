@@ -36,21 +36,7 @@ public class PhotoController {
     @Autowired
     private PhotoService photoService;
 
-//   @RequestMapping(path = "photoList",method = RequestMethod.GET)
-//    public ModelAndView photoList(Integer pageNow, Integer pageSize, String beginTime, String endTime, String fileName){
-//       Integer tableCount=photoService.getTableCount();
-//       PageCountUtil pageCountUtil =new PageCountUtil(pageNow,pageSize,tableCount);
-//       List<Photo> list=photoService.getPhotoList(pageCountUtil,beginTime,endTime,fileName);
-//       ModelAndView modelAndView = new ModelAndView();
-//       modelAndView.addObject("photoList",list);
-//       modelAndView.addObject("pageCountUtil",pageCountUtil);
-//       modelAndView.addObject("beginTime",beginTime);
-//       modelAndView.addObject("endTime",endTime);
-//       modelAndView.addObject("fileName",fileName);
-//       modelAndView.setViewName("frontend/albumPhoto/myPhoto");
-//       return modelAndView;
-//
-//   }
+
     @RequestMapping(path = "toInsertPhoto",method = RequestMethod.GET)
 //    public ModelAndView toInsertPhoto(Integer aId){
     public ModelAndView toInsertPhoto(Integer albumId){
@@ -60,6 +46,7 @@ public class PhotoController {
         modelAndView.setViewName("frontend/albumPhoto/insertPhoto");
         return modelAndView;
     }
+    //添加图片
     @RequestMapping(path = "insertPhoto",method = RequestMethod.POST)
     public String insertPhoto(MultipartFile upload, HttpServletRequest request,Integer albumId){
 //        User user = (User) request.getSession().getAttribute("user");

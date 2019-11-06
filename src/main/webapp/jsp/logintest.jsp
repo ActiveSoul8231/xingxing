@@ -39,7 +39,7 @@
 <input type="button" value="充值记录" onclick="toRecharge()">
 <input type="button" value="消费记录" onclick="toConsumption()">
 <input type="button" value="相册展示" onclick="toPhotoList()">
-<input type="button" value="图片" onclick="PhotoList()">
+
 <input type="button" value="标签" onclick="Label()">
 <input type="button" value="会员开通页面" onclick="VIP()">
 

@@ -22,7 +22,7 @@ public class AlbumController {
     private AlbumService albumService;
     @Autowired
     private PhotoService photoService;
-
+//相册列表
     @RequestMapping(path = "albumList",method = RequestMethod.GET)
     public ModelAndView albumList(){
         ModelAndView modelAndView=new ModelAndView();
@@ -46,6 +46,7 @@ public class AlbumController {
     return "redirect:/album/albumList";
 
     }
+    //相册删除
     @RequestMapping(path = "deleteAlbum",method = RequestMethod.GET)
     public String deleteAlbum(String id){
         albumService.deleteAlbum(id);

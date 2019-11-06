@@ -12,10 +12,6 @@
         location.href="${pageContext.request.contextPath}/album/toInsertAlbum?aId="+aId;
     }
 
-    function updateObj(id) {
-
-    }
-
     function deleteAlbum(id) {
         location.href="${pageContext.request.contextPath}/album/deleteAlbum?id="+id;
 
@@ -25,9 +21,7 @@
 
     }
 
-    function page(pageNow) {
 
-    }
 </script>
 
 <body>
