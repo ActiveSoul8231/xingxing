@@ -29,19 +29,23 @@ public class ConsumptionServiceImpl implements ConsumptionService {
 
     //自定义消费
     @Override
-    public void Consumption(Double consumptionAmount, Integer id, Integer spId) {
-        User user=consumptionDao.getUserById(id);
-            double money = user.getcMoney() - consumptionAmount;
-            consumptionDao.updateMoney(money,id);
-            User sp=consumptionDao.getUserById(spId);
-            money = consumptionAmount+sp.getcMoney() ;
-            consumptionDao.updateMoney(money,spId);
+    public String Consumption(Double consumptionAmount, Integer id, Integer spId) {
+        User user=consumptionDao.getUserById(id);//查找出user表中的user的id号
+        if (user.getcMoney()>=consumptionAmount){
+            double money = user.getcMoney() - consumptionAmount;//最新的金额=用户原有的金额-所要自定义打赏的金额
+            consumptionDao.updateMoney(money,id);//通过用户的id去更新最新的金额
+            User sp=consumptionDao.getUserById(spId);//查找出视频发布者的id号码
+            money = consumptionAmount+sp.getcMoney() ;//最新的金额=观看人所打赏的金额+视频拥有者的原有金额
+            consumptionDao.updateMoney(money,spId);//更新视频发布者的金额
 
             Date date = new Date();
             SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
             String format = sdf.format(date);
             consumptionDao.insertConsumption(format,consumptionAmount,id);
-
+            return "redirect:consumption/consumptionList";
+        }else{
+            return "frontend/recharge/Recharge";
+        }
     }
 
     //固定打赏20
@@ -60,6 +64,7 @@ public class ConsumptionServiceImpl implements ConsumptionService {
         consumptionDao.consumption2(format,id);
     }
 
+    //固定打赏30
     @Override
     public void Consumption3(Double consumptionAmount, Integer id, Integer spId) {
         User user = consumptionDao.getUserById(id);
@@ -74,9 +79,5 @@ public class ConsumptionServiceImpl implements ConsumptionService {
             SimpleDateFormat sdf = new SimpleDateFormat();
             String format = sdf.format(date);
             consumptionDao.consumption3(format,id);
-
-
     }
-
-
 }

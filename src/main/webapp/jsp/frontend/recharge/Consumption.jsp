@@ -22,16 +22,13 @@
 <body>
 <script  type="text/javascript">
     function toRecharge() {
-        location.href="${pageContext.request.contextPath}/consumption/toRecharge"
+        location.href="${pageContext.request.contextPath}/recharge/toRecharge"
     }
     function toConsumption30() {
         location.href="${pageContext.request.contextPath}/consumption/consumption3";
     }
     function toConsumption20() {
         location.href="${pageContext.request.contextPath}/consumption/consumption2";
-    }
-    function toPersonalWallet() {
-        location.href="${pageContext.request.contextPath}/recharge/toPersonalWallet"
     }
 </script>
 </head>
@@ -41,8 +38,8 @@
 <input type="button" class="btn btn-default btn-lg" value="充值" onclick="toRecharge()"><br><br>
 
 <form method="post" action="${pageContext.request.contextPath}/consumption/consumption">
-    打赏任意金额<input type="text" name="consumptionAmount">
-    <input type="submit" placeholder="自定义打赏金额(1—5000)" value="确定打赏">
+    打赏任意金额<input type="text" placeholder="自定义打赏金额(1—5000)" name="consumptionAmount">
+    <input type="submit" class="btn btn-warning" value="确定打赏">
 </form>
 </body>
 </html>

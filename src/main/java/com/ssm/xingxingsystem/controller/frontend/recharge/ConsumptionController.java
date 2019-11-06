@@ -43,10 +43,9 @@ public class ConsumptionController {
     public String Consumption(Double consumptionAmount,Integer spId){
 //      Integer id=request.getSession().setAttribute(id);
         Integer id=1;
-
         spId=9;
-        consumptionService.Consumption(consumptionAmount,id,spId);
-        return "redirect:consumptionList";
+        return consumptionService.Consumption(consumptionAmount,id,spId);
+
     }
 
     //固定打赏金额20
