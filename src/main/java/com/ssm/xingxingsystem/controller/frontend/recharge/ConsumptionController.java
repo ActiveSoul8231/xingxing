@@ -23,7 +23,7 @@ public class ConsumptionController {
     @RequestMapping(path = "consumptionList",method = RequestMethod.GET)
     public ModelAndView consumptionList(){
         // nteger userId = (Integer) request.getSession().getAttribute("userId");
-        Integer id=12;
+        Integer id=1;
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("frontend/recharge/consumptionList");
         List<Consumption> list=consumptionService.consumptionList(id);
@@ -44,16 +44,27 @@ public class ConsumptionController {
 //      Integer id=request.getSession().setAttribute(id);
         Integer id=1;
         spId=9;
-        consumptionService.Consumption(consumptionAmount,id,spId);
+        return consumptionService.Consumption(consumptionAmount,id,spId);
+
+    }
+
+    //固定打赏金额20
+    @RequestMapping(path = "consumption2",method = RequestMethod.GET)
+    public String Consumptin2(Double consumptionAmount,Integer spId){
+//      Integer id=request.getSession().setAttribute(id);
+        Integer id=1;
+        spId=12;
+        consumptionService.Consumption2(consumptionAmount,id,spId);
         return "redirect:consumptionList";
     }
 
-    //固定打赏金额
-    @RequestMapping(path = "Consumption2",method = RequestMethod.POST)
-    public String Consumptin2(Integer spId){
+    //固定打赏金额30
+    @RequestMapping(path = "consumption3",method = RequestMethod.GET)
+    public String Consumptin3(Double consumptionAmount,Integer spId){
 //      Integer id=request.getSession().setAttribute(id);
         Integer id=1;
-        consumptionService.Consumption2(id,spId);
-        return null;
+        spId=12;
+        consumptionService.Consumption3(consumptionAmount,id,spId);
+        return "redirect:consumptionList";
     }
 }

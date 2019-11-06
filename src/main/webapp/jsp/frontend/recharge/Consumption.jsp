@@ -22,31 +22,24 @@
 <body>
 <script  type="text/javascript">
     function toRecharge() {
-        location.href="${pageContext.request.contextPath}/R/toRecharge"
+        location.href="${pageContext.request.contextPath}/recharge/toRecharge"
     }
-    function toUpdateTest() {
-        location.href="${pageContext.request.contextPath}/C/updateConsumption";
+    function toConsumption30() {
+        location.href="${pageContext.request.contextPath}/consumption/consumption3";
     }
-    function toDSTest1() {
-        location.href="${pageContext.request.contextPath}/C/rewardConsumption1";
-    }
-    function toDSTest2() {
-        location.href="${pageContext.request.contextPath}/C/rewardConsumption2";
-    }
-    function toPersonalWallet() {
-        location.href="${pageContext.request.contextPath}/R/toPersonalWallet"
+    function toConsumption20() {
+        location.href="${pageContext.request.contextPath}/consumption/consumption2";
     }
 </script>
 </head>
 <%--<body><input type="hidden" value="${集合.userId}" name="UpUserId"> --%>
-<input type="button" class="btn btn-default btn-lg" value="打赏1硬币" onclick="toDSTest1()">
-<input type="button" class="btn btn-default btn-lg" value="打赏2硬币" onclick="toDSTest2()">
-<input type="button" class="btn btn-default btn-lg" value="修改测试" onclick="toUpdateTest()">
+<input type="button" class="btn btn-default btn-lg" value="打赏30硬币" onclick="toConsumption30()">
+<input type="button" class="btn btn-default btn-lg" value="打赏20硬币" onclick="toConsumption20()">
 <input type="button" class="btn btn-default btn-lg" value="充值" onclick="toRecharge()"><br><br>
 
 <form method="post" action="${pageContext.request.contextPath}/consumption/consumption">
-    打赏任意金额<input type="text" name="consumptionAmount">
-    <input type="submit" placeholder="自定义打赏金额(1—5000)" value="确定打赏">
+    打赏任意金额<input type="text" placeholder="自定义打赏金额(1—5000)" name="consumptionAmount">
+    <input type="submit" class="btn btn-warning" value="确定打赏">
 </form>
 </body>
 </html>
