@@ -23,6 +23,12 @@
     function toPhotoList() {
         location.href="${pageContext.request.contextPath}/album/albumList";
     }
+    function Label() {
+        location.href="${pageContext.request.contextPath}/label/labelList";
+    }
+    function VIP() {
+        location.href="${pageContext.request.contextPath}/vip/toVip";
+    }
 
     function DynamicList() {
         location.href="${pageContext.request.contextPath}/dynamic/dynamicList";
