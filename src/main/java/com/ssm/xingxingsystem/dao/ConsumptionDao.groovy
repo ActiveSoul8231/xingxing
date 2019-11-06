@@ -14,7 +14,7 @@ interface ConsumptionDao {
 
     //根据用户登录查询消费列表
     @ResultMap("consumptionMap")
-    @Select("select * from tb_consumption_record where id=#{id}")
+    @Select("select * from tb_consumption_record where user_id=#{id}")
     List<Consumption> consumptionList(
             @Param("id")Integer id)
 
@@ -35,5 +35,17 @@ interface ConsumptionDao {
     void insertConsumption(
             @Param("format")String format,
             @Param("consumptionAmount")double consumptionAmount,
+            @Param("id")int id)
+
+    //固定打赏2
+    @Insert("insert into tb_consumption_record(user_id,consumption_amount,consumption_items,consumption_time) values(#{id},20,2,#{format})")
+    void consumption2(
+            @Param("format")String format,
+            @Param("id")Integer id)
+
+    //固定打赏3
+    @Insert("insert into tb_consumption_record(user_id,consumption_amount,consumption_items,consumption_time) values(#{id},30,2,#{format})")
+    void consumption3(
+            @Param("format")String format,
             @Param("id")int id)
 }

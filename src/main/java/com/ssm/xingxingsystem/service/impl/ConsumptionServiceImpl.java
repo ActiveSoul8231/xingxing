@@ -31,25 +31,49 @@ public class ConsumptionServiceImpl implements ConsumptionService {
     @Override
     public void Consumption(Double consumptionAmount, Integer id, Integer spId) {
         User user=consumptionDao.getUserById(id);
-        double money = user.getcMoney() - consumptionAmount;
+            double money = user.getcMoney() - consumptionAmount;
+            consumptionDao.updateMoney(money,id);
+            User sp=consumptionDao.getUserById(spId);
+            money = consumptionAmount+sp.getcMoney() ;
+            consumptionDao.updateMoney(money,spId);
+
+            Date date = new Date();
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+            String format = sdf.format(date);
+            consumptionDao.insertConsumption(format,consumptionAmount,id);
+
+    }
+
+    //固定打赏20
+    @Override
+    public void Consumption2(Double consumptionAmount,Integer id,Integer spId) {
+        User user = consumptionDao.getUserById(id);
+        double money = user.getcMoney() - 20;
         consumptionDao.updateMoney(money,id);
-        User sp=consumptionDao.getUserById(spId);
-        money = consumptionAmount * 0.6+sp.getcMoney() ;
-        consumptionDao.updateMoney(money,id);
+        User sp = consumptionDao.getUserById(spId);
+        money=20+sp.getcMoney();
+        consumptionDao.updateMoney(money,spId);
 
         Date date = new Date();
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        SimpleDateFormat sdf = new SimpleDateFormat();
         String format = sdf.format(date);
-        consumptionDao.insertConsumption(format,consumptionAmount,id);
+        consumptionDao.consumption2(format,id);
     }
 
     @Override
-    public void Consumption2(Integer id,Integer spId) {
+    public void Consumption3(Double consumptionAmount, Integer id, Integer spId) {
         User user = consumptionDao.getUserById(id);
-        double money = user.getcMoney() - 2;
-        consumptionDao.updateMoney(money,id);
-        consumptionDao.getUserById(spId);
 
+            double money = user.getcMoney() - 30;
+            consumptionDao.updateMoney(money,id);
+            User sp = consumptionDao.getUserById(spId);
+            money = 30 + sp.getcMoney();
+            consumptionDao.updateMoney(money,spId);
+
+            Date date = new Date();
+            SimpleDateFormat sdf = new SimpleDateFormat();
+            String format = sdf.format(date);
+            consumptionDao.consumption3(format,id);
 
 
     }
