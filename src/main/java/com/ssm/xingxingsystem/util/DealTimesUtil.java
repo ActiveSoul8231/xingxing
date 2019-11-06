@@ -103,7 +103,19 @@ public class DealTimesUtil {
 //        System.out.println("-------处理时间："+format);
         return time;
     }
-
+    public static Date ryYear(Date date,Integer year,Integer month){
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+//        String format = sdf.format(date);
+        Calendar now = Calendar.getInstance();
+//        将获取的时间放到now中
+        now.setTime(date);
+        now.add(Calendar.YEAR,year);
+        now.add(Calendar.MONTH,month);
+        Date time = now.getTime();
+//        String format = sdf.format(time);
+//        System.out.println("-------处理时间："+format);
+        return time;
+    }
 
 
 }
