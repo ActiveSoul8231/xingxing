@@ -16,4 +16,8 @@ interface DynamicDao {
     @ResultMap("Dynamic")
     @Select("insert into tb_my_dynamics (user_id,dynamic_content,dynamic_photos_address,dynamic_date) values(#{d.userId},#{d.dynamicContent},#{d.dynamicPhotosAddress},#{d.dynamicDate})")
     def void addDynamic(@Param("d")Dynamic dynamic)
+
+    @ResultMap("Dynamic")
+    @Select("delete from tb_my_dynamics where id=#{id}")
+    def void deleteDynamic(int id)
 }

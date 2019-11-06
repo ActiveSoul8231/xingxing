@@ -115,9 +115,10 @@ public class PhotoController {
     }
     //图片删除
     @RequestMapping(path = "deletePhoto",method = RequestMethod.GET)
-    public String deletePhoto(Integer id){
+    public String deletePhoto(Integer id,String albumId){
         photoService.deletePhoto(id);
-        return "redirect:/album/albumPhoto";
+
+        return "redirect:/album/albumPhoto?id="+albumId;
 
     }
     }

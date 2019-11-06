@@ -24,4 +24,9 @@ public class DynamicServiceImpl implements DynamicService {
     public void addDynamic(Dynamic dynamic) {
         dynamicDao.addDynamic(dynamic);
     }
+
+    @Override
+    public void deleteDynamic(Integer id) {
+        dynamicDao.deleteDynamic(id);
+    }
 }

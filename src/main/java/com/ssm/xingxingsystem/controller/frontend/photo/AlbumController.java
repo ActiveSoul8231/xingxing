@@ -4,6 +4,7 @@ import com.ssm.xingxingsystem.bean.Album;
 import com.ssm.xingxingsystem.bean.Photo;
 import com.ssm.xingxingsystem.service.AlbumService;
 import com.ssm.xingxingsystem.service.PhotoService;
+import com.ssm.xingxingsystem.util.PageCountUtil;
 import com.ssm.xingxingsystem.vo.AlbumVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -59,8 +60,11 @@ public class AlbumController {
         List<Photo> list = albumService.getPhotoByAlbumId(id);
         modelAndView.addObject("photoList",list);
         modelAndView.addObject("albumId",id);
+
         modelAndView.setViewName("frontend/albumPhoto/myPhoto");
         return modelAndView;
     }
+
+
 
 }

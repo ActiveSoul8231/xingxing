@@ -53,5 +53,12 @@ public class DynamicController {
         return "redirect:/dynamic/dynamicList";
 
     }
+    //删除动态
+    @RequestMapping(path = "deleteDynamic",method = RequestMethod.GET)
+    public String deleteDynamic(Integer id){
+        dynamicService.deleteDynamic(id);
+        return "redirect:/dynamic/dynamicList";
+
+    }
 
 }

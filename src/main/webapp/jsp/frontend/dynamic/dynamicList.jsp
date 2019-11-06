@@ -17,7 +17,9 @@
         function insertAlbum(aId) {
             location.href="${pageContext.request.contextPath}/album/toInsertAlbum?aId="+aId;
         }
-
+        function deleteObj(id) {
+            location.href="${pageContext.request.contextPath}/dynamic/deleteDynamic?id="+id;
+        }
     </script>
 </head>
 <style type="text/css">
@@ -44,7 +46,7 @@
 <c:forEach var="dynamic" items="${dynamicList}">
     <p class="one">${dynamic.dynamicDate}</p>
     <p class="two"><tr class="weui-textarea" name="dynamicContent" style="border-style:none">${dynamic.dynamicContent}</tr></p>
-    <p class="tree"><img height="200px" src="${dynamic.dynamicPhotosAddress}"></p><br>
+    <p class="tree"><img height="200px" src="${dynamic.dynamicPhotosAddress}"><input type="button" value="删除" onclick="deleteObj(${dynamic.id})"></p>
 </c:forEach>
 </body>
 <!-- body 最后 -->

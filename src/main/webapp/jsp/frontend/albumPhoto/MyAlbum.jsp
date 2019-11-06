@@ -31,17 +31,18 @@
 </script>
 
 <body>
-<input type="button" value="添加一个相册" onclick="insertAlbum(${album.id})">
+<input type="button" value="添加一个相册" onclick="insertAlbum(${album.id})"><br>
+
 <c:forEach var="album" items="${albumList}">
     <tr>
-        <td>${album.id}</td><br>
-        <td>${album.albumName}</td><br>
-       <img src="${album.photo.photoAddress}" width="500" height="500" onclick="toAlbumPhoto(${album.id})"/><br></a>
-
+        <td>相册号：${album.id}</td><br>
+        <td>相册名字：${album.albumName}</td><br>
+        <td><img src="${album.photo.photoAddress}" width="500" height="500"  onclick="toAlbumPhoto(${album.id})"/><br></td>
         <td>
-            <input type="button" value="删除" onclick="deleteAlbum(${album.id})">
+            <input type="button" value="删除" onclick="deleteAlbum(${album.id})"><br>
         </td>
     </tr>
 </c:forEach>
+
 </body>
 </html>

@@ -20,7 +20,7 @@
     }
     function page(pageNow) {
         var pageSize = $("#pageSize option:selected").val();
-        location.href= "${pageContext.request.contextPath}/photo/photoList?pageNow="
+        location.href= "${pageContext.request.contextPath}/album/albumPhoto?pageNow="
             +pageNow+"&pageSize="+pageSize;
     }
     function insertPhoto() {
@@ -32,7 +32,8 @@
     }
 
     function deleteObj(id) {
-        location.href="${pageContext.request.contextPath}/photo/deletePhoto?id="+id;
+        var albumId = $("#albumId").val();
+        location.href="${pageContext.request.contextPath}/photo/deletePhoto?id="+id+"&albumId="+albumId;
     }
 
     function selectObj() {
@@ -44,11 +45,9 @@
     }
 </script>
 <body>
+<input type="hidden" id="albumId" value="${albumId}">
 <input type="button" value="添加" onclick="insertPhoto()">
-文件名称：<input type="text" id="fileName" value="${fileName}">
-开始时间：<input class="Wdate" id="beginTime" value="${beginTime}" type="text" onClick="WdatePicker({el:this,dateFmt:'yyyyMMdd'})">
-结束时间：<input class="Wdate" id="endTime" value="${endTime}" type="text" onClick="WdatePicker({el:this,dateFmt:'yyyyMMdd'})">
-<input type="button" value="查询" onclick="selectObj()">
+
 <%--相册ID：<input type="text" value="${albumList.id}">--%>
 <table class="table">
     <tr>
@@ -57,34 +56,24 @@
         <td>文件名称</td>
         <td>功能</td>
     </tr>
+    <div align="center">
     <c:forEach var="photo" items="${photoList}">
+
         <tr>
-<%--            <td>${photo.id}</td>--%>
-            <td><img height="55px" src="${photo.photoAddress}"></td>
+<%--           <td>${photo.id}</td>--%>
+            <td><img height="233px" src="${photo.photoAddress}"></td>
             <td>${photo.uploadTime}</td>
             <td>${photo.fileName}</td>
 
             <td>
-                <input type="button" value="修改" onclick="updateObj(${photo.id})">
                 <input type="button" value="删除" onclick="deleteObj(${photo.id})">
                 <a href="${pageContext.request.contextPath}/photo/download?id=${photo.id}">下载</a>
             </td>
         </tr>
+
     </c:forEach>
+    </div>
 </table>
-<select id = "pageSize" onchange="page(${pageCountUtil.pageNow})">
-    <option value="1">1</option>
-    <option value="2">2</option>
-    <option value="3">3</option>
-    <option value="4">4</option>
-    <option value="5">5</option>
-    <option value="10">10</option>
-</select>
-<input type="button" value="首页" onclick="page(1)">
-<input type="button" value="上一页" onclick="page(${pageCountUtil.pageNow-1})">
-${pageCountUtil.pageNow}
-<input type="button" value="下一页" onclick="page(${pageCountUtil.pageNow+1})">
-<input type="button" value="尾页" onclick="page(${pageCountUtil.pageEnd})">
-共${pageCountUtil.pageEnd}页
+
 </body>
 </html>

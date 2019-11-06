@@ -8,4 +8,6 @@ public interface DynamicService {
     List<Dynamic> dynamicList(int i);
 
     void addDynamic(Dynamic dynamic);
+
+    void deleteDynamic(Integer id);
 }
