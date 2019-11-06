@@ -1,6 +1,7 @@
 package com.ssm.xingxingsystem.dao
 import com.ssm.xingxingsystem.bean.Photo
 import com.ssm.xingxingsystem.util.PageCountUtil
+import org.apache.ibatis.annotations.Delete
 import org.apache.ibatis.annotations.Insert
 import org.apache.ibatis.annotations.Mapper
 import org.apache.ibatis.annotations.Param
@@ -42,7 +43,7 @@ public interface PhotoDao {
     @Select("select * from tb_my_photos where id = #{id}")
     def Photo getPhotoById(int id)
 
-    @ResultMap("photo")
-    @Select("delete from tb_my_photos where id=#{id}")
-    def void deletePhoto(@Param("id")int id)
+
+    @Delete("delete from tb_my_photos where id=#{id}")
+    def void deletePhoto(int id)
 }
