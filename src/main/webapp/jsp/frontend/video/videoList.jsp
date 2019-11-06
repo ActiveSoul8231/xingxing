@@ -41,32 +41,27 @@
         <td>视频通过</td>
         <td>通过状态</td>
         <td>置顶状态</td>
-        <td>会员状态</td>
+
 
     </tr>
+<c:forEach var="video1" items="${videoList}">
+    <c:if test="${video1.topFlag eq 49}">
         <tr>
-        <td>${topVideo.id}</td>
-        <td>${topVideo.videoName}</td>
-        <c:if test="${topVideo==null}">
-            <td></td>
+        <td>${video1.id}</td>
+        <td>${video1.videoName}</td>
+        <c:if test="${video1.topFlag eq 49}">
+            <td><img src="${video1.videoCover}" width="50px" height="50px"></img></td>
         </c:if>
-        <c:if test="${topVideo!=null}">
-            <td><img src="${topVideo.videoCover}" width="50px" height="50px"></img></td>
+        <td>${video1.uploadTime}</td>
+        <td>${video1.examineFlag}</td>
+        <td>${video1.auditPass}</td>
+        <td>${video1.topFlag}</td>
+        <c:if test="${video1.topFlag eq 49}">
+            <td><button onclick="cancelTopVideo(${video1.id})">取消置顶</button> </td>
         </c:if>
-        <td>${topVideo.uploadTime}</td>
-        <td>${topVideo.examineFlag}</td>
-        <td>${topVideo.auditPass}</td>
-        <td>${topVideo.viewingFlag}</td>
-        <td>${topVideo.viewingFlag}</td>
-        <td>${topVideo.topFlag}</td>
-        <c:if test="${topVideo!=null}">
-            <td><button onclick="cancelTopVideo(${topVideo.id})">取消置顶</button> </td>
-        </c:if>
-        <c:if test="${topVideo!=null}">
-            <td></td>
-        </c:if>
-    </tr>
-
+        </tr>
+    </c:if>
+</c:forEach>
 
 <%--    <tr>--%>
 <%--        <td>视频id</td>--%>
@@ -80,6 +75,7 @@
 <%--        <td>功能</td>--%>
 <%--    </tr>--%>
     <c:forEach var="video" items="${videoList}">
+        <c:if test="${video.topFlag eq 48}">
         <tr>
             <td>${video.id}</td>
             <td>${video.videoName}</td>
@@ -87,11 +83,12 @@
             <td>${video.uploadTime}</td>
             <td>${video.examineFlag}</td>
             <td>${video.auditPass}</td>
-            <td>${video.viewingFlag}</td>
+            <td>${video.topFlag}</td>
             <c:if test="${video.topFlag eq 48}">
                 <td><button onclick="topVideo(${video.id})">置顶</button> </td>
             </c:if>
         </tr>
+        </c:if>
     </c:forEach>
 </table>
 <input type="button" value="首页" onclick="page(1)">

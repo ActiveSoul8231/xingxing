@@ -1,9 +1,11 @@
 package com.ssm.xingxingsystem.controller.frontend.video;
 
+import com.ssm.xingxingsystem.bean.User;
 import com.ssm.xingxingsystem.bean.Video;
 import com.ssm.xingxingsystem.service.MyVideoService;
 import com.ssm.xingxingsystem.util.AliyunOSSUtil;
 import com.ssm.xingxingsystem.util.PageCountUtil;
+import org.apache.struts2.ServletActionContext;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -11,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -72,37 +75,36 @@ public class VideoController {
         return modelAndView;
 
     }
-    //    置顶视频
-    @RequestMapping(path = "topVideo")
+
+    //置顶
+    @RequestMapping(path = "topVideo",method = RequestMethod.GET)
     public ModelAndView topVideo(Integer id){
         ModelAndView mv = new ModelAndView();
-        Video topVideo=myVideoService.topVideo(id);
-        Video video = new Video();
-        video.setId(topVideo.getId());
-        if (topVideo !=null){
-            if (topVideo.equals('0')){
-                video.setTopFlag('1');
-                myVideoService.updateVideoTop(video);
-                mv.addObject("frontend/video/videoList");
-            }
-            Video videoById = myVideoService.getVideoById(id);
-            if (videoById.getTopFlag().equals("1")){
-                videoById.setTopFlag('0');
-            }else {
-                videoById.setTopFlag('1');
-            }
-            return myVideoService.toVideo(videoById);
+        Video video= myVideoService.topVideoList(id);
+        video.setId(video.getId());
+        if (video!=null) {
+            video.setTopFlag('0');
+            myVideoService.updateVideoTop(video);
+            mv.setViewName("redirect:videoList");
         }
-        return mv;
-
-    }
-    //    取消置顶
-    @RequestMapping(path = "cancelTopVideo")
-    public ModelAndView cancelTopVideo(Integer id){
         Video videoById = myVideoService.getVideoById(id);
+        if (videoById.getTopFlag().equals("1")){
+            videoById.setTopFlag('0');
+        }else {
+            videoById.setTopFlag('1');
+        }
+        myVideoService.toVideo(videoById);
+        return mv;
+    }
+    //取消置顶
+    @RequestMapping(path = "cancelTopVideo",method = RequestMethod.GET)
+    public ModelAndView cancelTopVideo(Integer id){
+        ModelAndView modelAndView = new ModelAndView();
+        Video videoById=myVideoService.getVideoById(id);
         videoById.setTopFlag('0');
-        return myVideoService.toVideo(videoById);
-
+        myVideoService.toVideo(videoById);
+        modelAndView.setViewName("redirect:videoList");
+        return modelAndView;
     }
 
 

@@ -34,27 +34,16 @@ import org.springframework.web.servlet.ModelAndView
 
 
     @ResultMap("videoMap")
+    @Update("update tb_video_upload set top_flag= #{video.topFlag} where id=#{video.id}")
+    def void updateVideoTop(@Param("video") Video video)
+
+    @ResultMap("videoMap")
     @Select("select * from tb_video_upload where id = #{id}")
-    def Video topVideo(@Param("id")int id)
-
-
+    def Video topVideoList(@Param("id")int id)
 
     @ResultMap("videoMap")
-    @Update("""<script>
-            update tb_video_upload set 
-         <if test="video.topVideo != null and video.topVideo != ''">
-                  top_video = #{video.topVideo} 
-        </if>
-     </script>"""
-    )
-    def void updateVideoTop(
-            @Param("video") Video video)
+    @Update("update tb_video_upload set top_flag= #{video.topFlag} where id=#{video.id}")
+    def void toVideo(@Param("video")Video video)
 
-
-
-
-    @ResultMap("videoMap")
-    @Update("")
-    ModelAndView toVideo(@Param("video") Video video)
 }
 

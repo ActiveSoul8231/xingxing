@@ -7,7 +7,6 @@ import com.ssm.xingxingsystem.util.PageCountUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
 
@@ -39,22 +38,20 @@ public class MyVideoServiceImpl implements MyVideoService {
     }
 
     @Override
-    public Video topVideo(Integer id) {
-        return myVideoDao.topVideo(id);
-
-    }
-
-    @Override
     public void updateVideoTop(Video video) {
          myVideoDao.updateVideoTop(video);
     }
 
-    @Override
-    public ModelAndView toVideo(Video video) {
 
-        return myVideoDao.toVideo(video);
+
+    @Override
+    public Video topVideoList(Integer id) {
+        return myVideoDao.topVideoList(id);
     }
 
-
+    @Override
+    public void toVideo(Video video) {
+        myVideoDao.toVideo(video);
+    }
 
 }

@@ -18,13 +18,11 @@ public interface MyVideoService {
 
     void videoInsert(Video video);
 
-
-    Video topVideo(Integer id);
-
     void updateVideoTop(Video video);
 
-    ModelAndView toVideo(Video video);
+    Video topVideoList(Integer id);
 
+    void toVideo(Video video);
 
 
 }
