@@ -33,6 +33,12 @@
     function DynamicList() {
         location.href="${pageContext.request.contextPath}/dynamic/dynamicList";
     }
+    function BannerList() {
+        location.href="${pageContext.request.contextPath}/banner/BannerList";
+    }
+    function IntegralList() {
+        location.href="${pageContext.request.contextPath}/integral/toIntegral";
+    }
 </script>
 <body>
 这是登录页面111111asdasdds
@@ -42,7 +48,8 @@
 
 <input type="button" value="标签" onclick="Label()">
 <input type="button" value="会员开通页面" onclick="VIP()">
-
 <input type="button" value="我的动态" onclick="DynamicList()">
+<input type="button" value="轮播管理" onclick="BannerList()">
+<input type="button" value="积分兑换" onclick="IntegralList()">
 </body>
 </html>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ssm.xingxingsystem.dao.BannerDao">
+
+    <resultMap id="bannerMap" type="com.ssm.xingxingsystem.bean.Banner">
+
+        <id column="id" property="id" jdbcType="INTEGER"/>
+        <result column="photos_address" property="photosAddress" jdbcType="VARCHAR"/>
+        <result column="photos_upload_time" property="photosUploadTime" jdbcType="VARCHAR"/>
+        <result column="photos_jumps" property="photosJumps" jdbcType="VARCHAR"/>
+        <result column="photos_name" property="photosName" jdbcType="VARCHAR"/>
+
+
+    </resultMap>
+
+</mapper>

@@ -70,20 +70,56 @@ public class VipServiceImpl implements VipService {
             } else if (nf > 2) {
                 integral.setIntegralNum(400 * vipTime);
             }
-            vipDao.insertIntegral(integral, userId);
+            Integral  ccc = vipDao.selectIntegral(userId);
+            if (ccc!=null) {
+                Integer integrals = ccc.getIntegralNum() + integral.getIntegralNum();
+                vipDao.updateIntegral(integrals, userId);
+            } else {
+
+                vipDao.insertIntegral(integral, userId);
+            }
+
             vipDao.insertIntegralRecord(integral, userId, format);
             Date date1;
-            if (vipTime<12) {
+            if (vipTime < 12) {
                 date1 = DealTimesUtil.ryYear(date, nf, vipTime);
-            }else {
-                Integer month=vipTime%12;
-                 date1 = DealTimesUtil.ryYear(date, nf, month);
+            } else {
+                Integer month = vipTime % 12;
+                date1 = DealTimesUtil.ryYear(date, nf, month);
             }
             String endTime = aaa.format(date1);
             vipDao.updateUserVip(user, cb, userId);
-            vipDao.insertKTtime(userId,format,endTime);
-            request.setAttribute("msg","开通成功");
-            return "msg";
+
+            String dqrq = vipDao.selectDqrq(userId);
+            Date das = null;
+
+
+            if (dqrq == null) {
+                vipDao.insertKTtime(userId, format, endTime);
+            } else {
+                try {
+                    das = aaa.parse(dqrq);
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
+
+                if (vipTime < 12) {
+                    date1 = DealTimesUtil.ryYear(das, nf, vipTime);
+                } else {
+                    Integer month = vipTime % 12;
+                    date1 = DealTimesUtil.ryYear(das, nf, month);
+                }
+                String date2 = aaa.format(date1);
+                vipDao.updateDQtime(userId, date2);
+            }
+
+            if (dqrq == null) {
+                request.setAttribute("msg", "开通成功");
+                return "msg";
+            } else {
+                request.setAttribute("msg", "续费成功");
+                return "msg";
+            }
         } else {
             request.setAttribute("msg", "金额不足");
             return "msg";
@@ -93,7 +129,7 @@ public class VipServiceImpl implements VipService {
     @Override
     public boolean selectDqrq(Integer userId) {
         String dqrq = vipDao.selectDqrq(userId);
-        if(dqrq!=null) {
+        if (dqrq != null) {
             Date date = new Date();
             SimpleDateFormat aaa = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
             try {
@@ -103,10 +139,15 @@ public class VipServiceImpl implements VipService {
             } catch (ParseException e1) {
                 e1.printStackTrace();
             }
-        }else {
+        } else {
             return false;
         }
-         return false;
+        return false;
+    }
+
+    @Override
+    public void updateUserLeave(Integer userId) {
+        vipDao.updateUserLeave(userId);
     }
 
 }

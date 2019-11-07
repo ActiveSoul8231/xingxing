@@ -42,4 +42,17 @@ interface VipDao {
     @ResultType(String)
     @Select("select end_time from tb_membership_level_time where user_id=#{userId}")
     def String selectDqrq(@Param("userId")int userId)
+
+    @Update("UPDATE tb_user SET c_money = #{cb},membership_level_id=1 WHERE id =#{userId}")
+    def void updateUserLeave(@Param("userId")int userId)
+
+    @Update("UPDATE tb_membership_level_time SET end_time = #{date} WHERE user_id =#{userId}")
+    def void updateDQtime(@Param("userId")int userId,@Param("date") String date2)
+
+    @ResultMap("integralMap")
+    @Select("select * from tb_integral where user_id=#{userId}")
+    def Integral selectIntegral(@Param("userId")int userId)
+
+    @Update("UPDATE tb_integral SET integral_num = #{integral} WHERE user_id =#{userId}")
+    def void updateIntegral(@Param("integral")Integer integrals, @Param("userId")int userId)
 }

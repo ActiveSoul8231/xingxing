@@ -11,11 +11,6 @@
     function tovip1() {
         location.href="${pageContext.request.contextPath}/vip/vip1";
     }
-    function tovip12() {
-        location.href="${pageContext.request.contextPath}/vip/vip12";
-    }
-
-
 
 </script>
 <body>

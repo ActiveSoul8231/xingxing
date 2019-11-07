@@ -13,50 +13,62 @@ import java.util.Date;
 
 @Controller
 @RequestMapping("vip")
-public class vipController {
+public class VipController {
     @Autowired
     private VipService vipService;
     @Autowired
-    HttpServletRequest request;
+     HttpServletRequest request;
 
-    @RequestMapping(path = "vipPD",method = RequestMethod.GET)
-    public String vipPD(){
-        //        User user = (User) request.getSession().getAttribute("user");
+
+    public  boolean vipPD(){
+
+        //        User user = (User) request.getSession().getAttribute("user333");
 //        Integer userId=user.getId();
         Integer userId=9;
         boolean flag = vipService.selectDqrq(userId);
-        return "";
-
+        if (flag) {
+            return true;
+        }else{
+            vipService.updateUserLeave(userId);
+        }
+        return true;
     }
 
 
     @RequestMapping(path = "toVip", method = RequestMethod.GET)
-    public String userLogin(User user) {
+    public String toVip() {
+//        User user = (User) request.getSession().getAttribute("user333");
+//        Integer userId=user.getId();
+        Integer userId=9;
+        boolean flag = vipService.selectDqrq(userId);
+        request.setAttribute("flag",flag);
         return "frontend/vip/vipkt";
     }
 
     @RequestMapping(path = "vipsj", method = RequestMethod.POST)
     public String vipsj(Integer vipTime) {
-//        User user = (User) request.getSession().getAttribute("user");
+//        User user = (User) request.getSession().getAttribute("user333");
 //        Integer userId=user.getId();
         Integer userId=9;
         String vipsj = vipService.vipsj(vipTime, userId);
         return vipsj;
     }
     @RequestMapping(path = "vip1", method = RequestMethod.GET)
-    public String vip1(Integer vipTime) {
-//        User user = (User) request.getSession().getAttribute("user");
+    public String vip1( ) {
+//        User user = (User) request.getSession().getAttribute("user333");
 //        Integer userId=user.getId();
         Integer userId=9;
-        String vipsj = vipService.vipsj(1, userId);
+        Integer vipTime=1;
+        String vipsj = vipService.vipsj(vipTime, userId);
         return vipsj;
     }
     @RequestMapping(path = "vip12", method = RequestMethod.GET)
     public String vip12() {
-//        User user = (User) request.getSession().getAttribute("user");
+//        User user = (User) request.getSession().getAttribute("user333");
 //        Integer userId=user.getId();
         Integer userId=9;
-        String vipsj = vipService.vipsj(12, userId);
+        Integer vipTime=12;
+        String vipsj = vipService.vipsj(vipTime, userId);
         return vipsj;
     }
 
